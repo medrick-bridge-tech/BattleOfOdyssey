@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db2cacdc76fd90a4a9d4b04e8136c60b
+guid: a9d51bd5173606e48b0ea3265a1c94d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkForward_0
+      name: RunRightside_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 21
+        width: 8
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,40 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 627757790bc906045b39b9646154142d
-      internalID: 2107455041
+      spriteID: 0702deec4721ca54b9132e063953d83d
+      internalID: -129861968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkForward_1
+      name: RunRightside_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d92bdeb051663049915b13acc644ba7
-      internalID: -654897463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkForward_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 12
+        width: 8
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,61 +140,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344b29611ac2bbe4987664fc63447f50
-      internalID: -94351635
+      spriteID: eb37dd68218744e49b0d4cc77ec28457
+      internalID: -1868990562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkForward_3
+      name: RunRightside_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6145a356c5167ef40902b154d2b65952
+      internalID: -1245065873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunRightside_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3154782be88a09e4ca07397bac81a6cd
-      internalID: -677782337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkForward_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08fe19482e3e9fd4fabf75303238bb34
-      internalID: -778043662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkForward_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 12
+        width: 8
         height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,8 +182,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95953f9507b064b4fa4a7d314bdcc057
-      internalID: -1512141582
+      spriteID: 2d89387f48365c7428566dc8e5f17308
+      internalID: 1480019866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunRightside_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be9ea3bf72e53740b4cfe944fbdc130
+      internalID: -2004816390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunRightside_5
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc529f5e45608a49be29610ad10d142
+      internalID: 592640093
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WalkForward_0: 2107455041
-      WalkForward_1: -654897463
-      WalkForward_2: -94351635
-      WalkForward_3: -677782337
-      WalkForward_4: -778043662
-      WalkForward_5: -1512141582
+      RunRightside_0: -129861968
+      RunRightside_1: -1868990562
+      RunRightside_2: -1245065873
+      RunRightside_3: 1480019866
+      RunRightside_4: -2004816390
+      RunRightside_5: 592640093
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
