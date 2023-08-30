@@ -10,7 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player")]
     [SerializeField] private float moveSpeed;
 
+    [SerializeField] private float energy;
     private float _extraMoveSpeed;
+    
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
     private Animator _animator;
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
 
+        energy = 100f;
+        
         _extraMoveSpeed = 0f;
     }
     
@@ -41,16 +45,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckRunning()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (energy > 0.1f)
         {
-            _animator.SetBool("IsRunning", true); 
-            _extraMoveSpeed = 0.5f;
-             
-        }else 
-        {
-            _animator.SetBool("IsRunning", false);
-            _extraMoveSpeed = 0f; 
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _animator.SetBool("IsRunning", true); 
+                _extraMoveSpeed = 0.5f;
+                DecreaseEnergy();
+            }else 
+            {
+                _animator.SetBool("IsRunning", false);
+                _extraMoveSpeed = 0f;
+                IncreaseEnergy();
+            }
+            
         }
+
+        
+
+
+
     }
+
+    void DecreaseEnergy()
+    {
+        energy -= 5f*Time.deltaTime;
+    }
+
+    void IncreaseEnergy()
+    {
+        
+            if(energy <= 100f && _movement.sqrMagnitude ==0)
+            {
+                energy += 1f*Time.deltaTime;    
+            }
+            
+    }
+    
     
 }
