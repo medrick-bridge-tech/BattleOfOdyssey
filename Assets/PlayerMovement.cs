@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -28,13 +29,14 @@ public class PlayerMovement : MonoBehaviour
         
         _animator.SetFloat("Horizontal",_movement.x);
         _animator.SetFloat("Vertical",_movement.y);
-        _animator.SetFloat("Speed",_movement.sqrMagnitude);
+        _animator.SetFloat("Speed",Convert.ToInt32(_movement.magnitude));
+        
         CheckRunning();
     }
 
     private void FixedUpdate()
     {
-        _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * ((moveSpeed+_extraMoveSpeed) * Time.fixedDeltaTime));
+        _rigidbody2D.MovePosition(_rigidbody2D.position + _movement.normalized * ((moveSpeed+_extraMoveSpeed) * Time.fixedDeltaTime));
     }
 
     private void CheckRunning()
