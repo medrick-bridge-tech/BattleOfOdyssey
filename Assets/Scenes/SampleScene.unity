@@ -9934,6 +9934,9 @@ Transform:
   m_Children:
   - {fileID: 1908175599}
   - {fileID: 248053152}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   - {fileID: 218237078}
   - {fileID: 255304295}
   m_Father: {fileID: 0}
@@ -12014,6 +12017,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 0.99059296
   far clip plane: 5000
   field of view: 40
   orthographic: 1
@@ -12041,6 +12048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalPosition: {x: -1.6772462, y: 0.0639167, z: -14.164437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14158,6 +14166,9 @@ GameObject:
   - component: {fileID: 990070894}
   - component: {fileID: 990070895}
   - component: {fileID: 990070896}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
   - component: {fileID: 990070897}
   - component: {fileID: 990070898}
   m_Layer: 0
@@ -14232,6 +14243,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &990070893
