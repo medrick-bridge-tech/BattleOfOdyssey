@@ -30,7 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleInput();
         HandleMoveAnimation();
-        CheckRunning();
+        Run();
+        Roll();
     }
 
     private void FixedUpdate()
@@ -38,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D.MovePosition(GetMovingFormula());
     }
 
-    private void CheckRunning()
+    private void Run()
     {
         if (energy > 0.1f)
         {
@@ -55,6 +56,14 @@ public class PlayerMovement : MonoBehaviour
                     IncreaseEnergy();
                 }
             }
+        }
+    }
+
+    private void Roll()
+    {
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            _animator.SetTrigger("Roll");
         }
     }
     
