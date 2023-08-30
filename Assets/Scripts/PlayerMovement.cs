@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private float moveSpeed;
-
     [SerializeField] private float energy;
+    
     private float _extraMoveSpeed;
     
     private Rigidbody2D _rigidbody2D;
