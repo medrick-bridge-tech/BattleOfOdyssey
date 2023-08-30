@@ -18,7 +18,7 @@ Assets/Plugins/Editor/JetBrains*
 Assets/AssetStoreTools*
 [Ll]ogs/
 Assets/CDN~
-
+UserSettings/
 # Visual Studio cache directory
 .vs/
 
