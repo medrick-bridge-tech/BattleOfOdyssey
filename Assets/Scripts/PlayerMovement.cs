@@ -7,11 +7,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Player")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float energy;
     
-    private float _extraMoveSpeed;
+    private float _deltaMoveSpeed;
     
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
@@ -24,24 +23,19 @@ public class PlayerMovement : MonoBehaviour
 
         energy = 100f;
         
-        _extraMoveSpeed = 0f;
+        _deltaMoveSpeed = 0f;
     }
     
     private void Update()
     {
-        _movement.x = Input.GetAxisRaw("Horizontal");
-        _movement.y = Input.GetAxisRaw("Vertical");
-        
-        _animator.SetFloat("Horizontal",_movement.x);
-        _animator.SetFloat("Vertical",_movement.y);
-        _animator.SetFloat("Speed",Convert.ToInt32(_movement.magnitude));
-        
+        HandleInput();
+        HandleMoveAnimation();
         CheckRunning();
     }
 
     private void FixedUpdate()
     {
-        _rigidbody2D.MovePosition(_rigidbody2D.position + _movement.normalized * ((moveSpeed+_extraMoveSpeed) * Time.fixedDeltaTime));
+        _rigidbody2D.MovePosition(GetMovingFormula());
     }
 
     private void CheckRunning()
@@ -50,31 +44,66 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                _animator.SetBool("IsRunning", true); 
-                _extraMoveSpeed = 0.5f;
+                HandleRunAnimation(0.5f, true);
                 DecreaseEnergy();
-            }else 
+            } 
+            else 
             {
-                _animator.SetBool("IsRunning", false);
-                _extraMoveSpeed = 0f;
-                IncreaseEnergy();
+                HandleRunAnimation(0f, false);
+                if (IsReadyToGainEnergy())
+                {
+                    IncreaseEnergy();
+                }
             }
-            
+        }
+    }
+    
+    private void HandleInput()
+    {
+        _movement.x = Input.GetAxisRaw("Horizontal");
+        _movement.y = Input.GetAxisRaw("Vertical");
+    }
+
+    private void HandleMoveAnimation()
+    {
+        _animator.SetFloat("Horizontal", _movement.x);
+        _animator.SetFloat("Vertical", _movement.y);
+        _animator.SetFloat("Speed",Convert.ToInt32(_movement.magnitude));
+    }
+
+    private void HandleRunAnimation(float runSpeed,bool isRun)
+    {
+        _animator.SetBool("IsRunning", isRun);
+        _deltaMoveSpeed = runSpeed;
+    }
+
+    private Vector2 GetMovingFormula()
+    {
+        var direction = _rigidbody2D.position +
+                            _movement.normalized * ((moveSpeed + _deltaMoveSpeed) * Time.fixedDeltaTime);
+        return direction;
+
+    }
+    
+    private bool IsReadyToGainEnergy()
+    {
+        if (energy <= 100f && _movement.sqrMagnitude == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-    void DecreaseEnergy()
+    private void DecreaseEnergy()
     {
         energy -= 5f*Time.deltaTime;
     }
 
-    void IncreaseEnergy()
+    private void IncreaseEnergy()
     {
-        
-            if(energy <= 100f && _movement.sqrMagnitude ==0)
-            {
-                energy += 1f*Time.deltaTime;    
-            }
-            
+        energy += 1f * Time.deltaTime;
     }
 }
