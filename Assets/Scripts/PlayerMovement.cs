@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckRunning()
     {
-        if (energy > 0.1f)
+        if (energy >= 0.5f)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -56,6 +56,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            HandleRunAnimation(0f, false);
+        }
+
     }
     
     private void HandleInput()
@@ -99,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DecreaseEnergy()
     {
-        energy -= 5f*Time.deltaTime;
+        energy -= 6f*Time.deltaTime;
     }
 
     private void IncreaseEnergy()
