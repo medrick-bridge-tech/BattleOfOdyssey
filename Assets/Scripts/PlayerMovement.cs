@@ -15,14 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
     private Animator _animator;
-    
+    private Inventory _inventory;
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
-        energy = 100f;
+        _inventory = FindObjectOfType<Inventory>();
         
+        energy = 100f;
         _deltaMoveSpeed = 0f;
     }
     
@@ -130,5 +130,21 @@ public class PlayerMovement : MonoBehaviour
     private void IncreaseEnergy()
     {
         energy += 1f * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Gun"))
+        {
+            Weapon gun = other.GetComponent<Weapon>();
+            _inventory.AddWeapon(gun.GetWeaponInfo());
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Ammo"))
+        {
+            Ammo ammo = other.GetComponent<Ammo>();
+            _inventory.AddAmmo(ammo);
+            Destroy(other.gameObject);
+        }
     }
 }
