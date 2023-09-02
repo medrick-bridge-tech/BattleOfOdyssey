@@ -52,6 +52,11 @@ public class PlayerMovement : MonoBehaviour
         {
             IncreaseEnergy();
         }
+        else
+        {
+            HandleRunAnimation(0f, false);
+        }
+
     }
 
     private void Roll()
