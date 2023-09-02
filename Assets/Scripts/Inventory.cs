@@ -12,11 +12,8 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<Weapon> weaponInventory;
 
-    [SerializeField] private Dictionary<AmmoType, int> ammoInventory = new Dictionary<AmmoType, int>()
-    {
-        { AmmoType.Cartridge3Mm, 0 }
-    };
-    
+    [SerializeField] private Dictionary<AmmoProperty, int> ammoInventory = new Dictionary<AmmoProperty, int>();
+
     private void Start()
     {
         
@@ -25,10 +22,20 @@ public class Inventory : MonoBehaviour
     {
         weaponInventory.Add(weapon);
     }
-
+    
     public void AddAmmo(Ammo ammo)
     {
-        ammoInventory[ammo.AmmoProperty.AmmoType] += ammo.AmmoProperty.AmmoCounts;
-        Debug.Log($"{ammo.AmmoProperty.AmmoType} : {ammoInventory[ammo.AmmoProperty.AmmoType]}");
+        if (ammoInventory.ContainsKey(ammo.AmmoProperty))
+        {
+            ammoInventory[ammo.AmmoProperty] += ammo.AmmoProperty.AmmoCounts;
+            Debug.Log($"{ammo.AmmoProperty.AmmoType} : {ammoInventory[ammo.AmmoProperty]}");    
+        }
+        else
+        {
+            ammoInventory.Add(ammo.AmmoProperty,ammo.AmmoProperty.AmmoCounts);
+        }
+        
+
+
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Cartridge3mm
   m_EditorClassIdentifier: 
   ammoType: 0
-  skin: {fileID: 466058876, guid: 6e89a83dd3c99b640aef81e6cb1e1934, type: 3}
+  skin: {fileID: -689851738, guid: 6f9cc5191228a024b9fe99b31ef989cf, type: 3}
+  bulletSkin: {fileID: 466058876, guid: 6e89a83dd3c99b640aef81e6cb1e1934, type: 3}
   ammoCounts: 10
-  damage: 0
+  bulletDamage: 0
