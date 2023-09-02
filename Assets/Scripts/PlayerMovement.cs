@@ -30,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleInput();
         HandleMoveAnimation();
-        Run();
-        Roll();
     }
 
     private void FixedUpdate()
@@ -41,41 +39,49 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        if (energy >= 0.5f)
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                HandleRunAnimation(0.5f, true);
-                DecreaseEnergy();
-            } 
-            else 
-            {
-                HandleRunAnimation(0f, false);
-                if (IsReadyToGainEnergy())
-                {
-                    IncreaseEnergy();
-                }
-            }
-        }
-        else
-        {
-            HandleRunAnimation(0f, false);
-        }
+        
+        HandleRunAnimation(0.5f, true);
+        DecreaseEnergy();
 
+    }
+
+    private void StopRunning()
+    {
+        HandleRunAnimation(0f, false);
+        if (IsReadyToGainEnergy())
+        {
+            IncreaseEnergy();
+        }
     }
 
     private void Roll()
     {
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-            _animator.SetTrigger("Roll");
-        }
+        _animator.SetTrigger("Roll");
     }
     
     private void HandleInput()
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
+        
+        //Roll
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            Roll();
+        }
+
+        //Run
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (energy >= 0.5f)
+            {
+                Run();
+            }
+            else
+            { 
+                StopRunning();
+            }
+        }
     }
 
     private void HandleMoveAnimation()
