@@ -5,24 +5,19 @@ using Unity.Mathematics;
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
+public class ControlCharacter : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float energy;
-    
     private float _deltaMoveSpeed;
-    
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
     private Animator _animator;
-    private Inventory _inventory;
+    private Player _player;
     private void Start()
     {
+        _player = GetComponent<Player>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _inventory = FindObjectOfType<Inventory>();
-        
-        energy = 100f;
         _deltaMoveSpeed = 0f;
     }
     
@@ -39,10 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        
         HandleRunAnimation(0.5f, true);
-        DecreaseEnergy();
-
+        _player.DecreaseEnergy();
     }
 
     private void StopRunning()
@@ -50,13 +43,12 @@ public class PlayerMovement : MonoBehaviour
         HandleRunAnimation(0f, false);
         if (IsReadyToGainEnergy())
         {
-            IncreaseEnergy();
+            _player.IncreaseEnergy();
         }
         else
         {
             HandleRunAnimation(0f, false);
         }
-
     }
 
     private void Roll()
@@ -78,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         //Run
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (energy >= 0.5f)
+            if (_player.Energy >= 0.5f)
             {
                 Run();
             }
@@ -107,44 +99,17 @@ public class PlayerMovement : MonoBehaviour
         var direction = _rigidbody2D.position +
                             _movement.normalized * ((moveSpeed + _deltaMoveSpeed) * Time.fixedDeltaTime);
         return direction;
-
     }
     
     private bool IsReadyToGainEnergy()
     {
-        if (energy <= 100f && _movement.sqrMagnitude == 0)
+        if (_player.Energy <= 100f && _movement.sqrMagnitude == 0)
         {
             return true;
         }
         else
         {
             return false;
-        }
-    }
-
-    private void DecreaseEnergy()
-    {
-        energy -= 6f*Time.deltaTime;
-    }
-
-    private void IncreaseEnergy()
-    {
-        energy += 1f * Time.deltaTime;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Gun"))
-        {
-            Weapon gun = other.GetComponent<Weapon>();
-            _inventory.AddWeapon(gun);
-            other.gameObject.SetActive(false);
-        }
-        if (other.CompareTag("Ammo"))
-        {
-            Ammo ammo = other.GetComponent<Ammo>();
-            _inventory.AddAmmo(ammo);
-            other.gameObject.SetActive(false);
         }
     }
 }

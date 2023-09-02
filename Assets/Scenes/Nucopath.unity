@@ -9961,6 +9961,7 @@ GameObject:
   - component: {fileID: 990070894}
   - component: {fileID: 990070895}
   - component: {fileID: 990070896}
+  - component: {fileID: 990070897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10069,7 +10070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
-  energy: 0
 --- !u!50 &990070895
 Rigidbody2D:
   serializedVersion: 4
@@ -10117,6 +10117,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.074764535, y: 0.11130302}
   m_EdgeRadius: 0
+--- !u!114 &990070897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990070890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d6daf7a5e247fc871c953b7e18c44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energy: 100
 --- !u!1 &1141751854
 GameObject:
   m_ObjectHideFlags: 0

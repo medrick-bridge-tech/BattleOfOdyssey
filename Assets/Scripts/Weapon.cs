@@ -5,7 +5,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponProperty weaponProperty;
     private SpriteRenderer _spriteRenderer;
-
+    
     public WeaponProperty WeaponProperty => weaponProperty;
 
     private void Start()

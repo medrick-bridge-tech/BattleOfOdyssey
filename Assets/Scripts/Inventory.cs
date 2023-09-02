@@ -13,11 +13,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<Weapon> weaponInventory;
 
     [SerializeField] private Dictionary<AmmoProperty, int> ammoInventory = new Dictionary<AmmoProperty, int>();
-
-    private void Start()
-    {
-        
-    }
+    
     public void AddWeapon(Weapon weapon)
     {
         weaponInventory.Add(weapon);
@@ -34,8 +30,5 @@ public class Inventory : MonoBehaviour
         {
             ammoInventory.Add(ammo.AmmoProperty,ammo.AmmoProperty.AmmoCounts);
         }
-        
-
-
     }
 }
