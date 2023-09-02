@@ -8,27 +8,27 @@ public enum AmmoType
     Cartridge3Mm
 }
 
-[Serializable]
-public class AmmoInventory
-{
-    public AmmoType ammoType;
-    public int count;
-}
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<WeaponProperty> weaponInventory;
-    [SerializeField] private List<AmmoInventory> ammoInventory;
-    public void AddWeapon(WeaponProperty weapon)
+    [SerializeField] private List<Weapon> weaponInventory;
+
+    [SerializeField] private Dictionary<AmmoType, int> ammoInventory = new Dictionary<AmmoType, int>()
+    {
+        { AmmoType.Cartridge3Mm, 0 }
+    };
+    
+    private void Start()
+    {
+        
+    }
+    public void AddWeapon(Weapon weapon)
     {
         weaponInventory.Add(weapon);
     }
 
     public void AddAmmo(Ammo ammo)
     {
-        ammoInventory.Add(new AmmoInventory
-        {
-            ammoType = ammo.GetAmmoType(),
-            count = ammo.GetAmmoCounts()
-        });
+        ammoInventory[ammo.AmmoProperty.AmmoType] += ammo.AmmoProperty.AmmoCounts;
+        Debug.Log($"{ammo.AmmoProperty.AmmoType} : {ammoInventory[ammo.AmmoProperty.AmmoType]}");
     }
 }

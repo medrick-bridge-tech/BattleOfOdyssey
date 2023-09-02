@@ -169,8 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64eeb5a4fea46a599bab74449c796c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoType: 0
-  ammoCounts: 10
+  ammoProperty: {fileID: 11400000, guid: dcbba21ce23c7224e8c1188b21898ead, type: 2}
 --- !u!61 &86735901
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9914,7 +9913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInventory: []
-  ammoInventory: []
 --- !u!1 &730316423
 GameObject:
   m_ObjectHideFlags: 0
@@ -15202,8 +15200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64eeb5a4fea46a599bab74449c796c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoType: 0
-  ammoCounts: 10
+  ammoProperty: {fileID: 11400000, guid: dcbba21ce23c7224e8c1188b21898ead, type: 2}
 --- !u!1 &1541844798
 GameObject:
   m_ObjectHideFlags: 0
@@ -15250,8 +15247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64eeb5a4fea46a599bab74449c796c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoType: 0
-  ammoCounts: 10
+  ammoProperty: {fileID: 11400000, guid: dcbba21ce23c7224e8c1188b21898ead, type: 2}
 --- !u!61 &1541844801
 BoxCollider2D:
   m_ObjectHideFlags: 0

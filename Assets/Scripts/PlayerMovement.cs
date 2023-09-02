@@ -137,14 +137,14 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Gun"))
         {
             Weapon gun = other.GetComponent<Weapon>();
-            _inventory.AddWeapon(gun.GetWeaponInfo());
-            Destroy(other.gameObject);
+            _inventory.AddWeapon(gun);
+            other.gameObject.SetActive(false);
         }
         if (other.CompareTag("Ammo"))
         {
             Ammo ammo = other.GetComponent<Ammo>();
             _inventory.AddAmmo(ammo);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

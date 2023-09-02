@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] private AmmoType ammoType;
-    [SerializeField] private int ammoCounts;
-    public AmmoType GetAmmoType()
+    [SerializeField] private AmmoProperty ammoProperty;
+    private SpriteRenderer _spriteRenderer;
+    
+    public AmmoProperty AmmoProperty => ammoProperty;
+    
+    private void Start()
     {
-        return ammoType;
-    }
-
-    public int GetAmmoCounts()
-    {
-        return ammoCounts;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = ammoProperty.Skin;
     }
 }
