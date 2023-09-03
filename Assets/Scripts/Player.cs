@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float energy;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject shootVFX;
     private Inventory _inventory;
     private ControlCharacter _character;
     public float Energy => energy;
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && _inventory.ActiveWeapon != null)
         {
             Shoot();
         }
@@ -44,8 +45,12 @@ public class Player : MonoBehaviour
     
     private void Shoot()
     {
-        var newBullet = Instantiate(bullet,transform.position,quaternion.identity);
+        var position = transform.position;
+        var newBullet = Instantiate(bullet,position,Quaternion.identity);
+        var bulletVFX = Instantiate(shootVFX,position,Quaternion.identity);
+        Destroy(bulletVFX,1f);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
+        newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
     }
     public void DecreaseEnergy()
     {

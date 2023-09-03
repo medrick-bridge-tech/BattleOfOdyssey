@@ -83,10 +83,10 @@ public class ControlCharacter : MonoBehaviour
             {
                 Run();
             }
-            else
-            { 
-                StopRunning();
-            }
+        }
+        else
+        {
+            StopRunning();
         }
     }
 
