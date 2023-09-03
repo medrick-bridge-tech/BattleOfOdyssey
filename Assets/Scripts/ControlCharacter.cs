@@ -11,6 +11,7 @@ public class ControlCharacter : MonoBehaviour
     private float _deltaMoveSpeed;
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
+    private Vector2 _storeMovement;
     private Animator _animator;
     private Player _player;
     private void Start()
@@ -55,12 +56,20 @@ public class ControlCharacter : MonoBehaviour
     {
         _animator.SetTrigger("Roll");
     }
-    
+
+    public Vector2 GetMovement()
+    {
+        return _storeMovement;
+    }
     private void HandleInput()
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
-        
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            _storeMovement = _movement;
+            Debug.Log(_storeMovement);
+        }
         //Roll
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -94,6 +103,10 @@ public class ControlCharacter : MonoBehaviour
         _deltaMoveSpeed = runSpeed;
     }
 
+    public Vector2 GetDirection()
+    {
+        return _movement;
+    }
     private Vector2 GetMovingFormula()
     {
         var direction = _rigidbody2D.position +

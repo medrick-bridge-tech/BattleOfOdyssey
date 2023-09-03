@@ -5,13 +5,13 @@ public class AmmoProperty : ScriptableObject
 {
     [SerializeField] private AmmoType ammoType;
     [SerializeField] private Sprite skin;
-    [SerializeField] private Sprite bulletSkin;
     [SerializeField] private int ammoCounts;
-    [SerializeField] private int bulletDamage;
-
+    [SerializeField] private float bulletDamage;
+    [SerializeField] private float bulletSpeed;
     public AmmoType AmmoType => ammoType;
-    public int AmmoCounts => ammoCounts;
-    public int Damage => bulletDamage;
     public Sprite Skin => skin;
-    public Sprite BulletSkin => bulletSkin;
+    public int AmmoCounts => ammoCounts;
+    public float Damage => bulletDamage;
+    public float Speed => bulletSpeed;
+
 }

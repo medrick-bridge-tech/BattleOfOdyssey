@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   skin: {fileID: -2139147094, guid: 39079841c0c99f5488f3219a8f3c805b, type: 3}
-  ammoType: 0
-  magazine: 0
-  shotPerSecond: 0
-  damage: 0
+  bullet: {fileID: 11400000, guid: dcbba21ce23c7224e8c1188b21898ead, type: 2}
+  magazineCapacity: 0
+  fireRate: 0

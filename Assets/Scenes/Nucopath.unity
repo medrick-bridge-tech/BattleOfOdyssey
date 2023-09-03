@@ -9913,6 +9913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponInventory: []
+  activeWeapon: {fileID: 0}
 --- !u!1 &730316423
 GameObject:
   m_ObjectHideFlags: 0
@@ -10130,6 +10131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
+  bullet: {fileID: 6562236085976135695, guid: 7d241c7a3a9b65947a233c172303fa47, type: 3}
 --- !u!1 &1141751854
 GameObject:
   m_ObjectHideFlags: 0

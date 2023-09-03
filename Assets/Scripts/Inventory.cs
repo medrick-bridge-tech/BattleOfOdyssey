@@ -11,8 +11,15 @@ public enum AmmoType
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<Weapon> weaponInventory;
-
+    [SerializeField] private Weapon activeWeapon;
     [SerializeField] private Dictionary<AmmoProperty, int> ammoInventory = new Dictionary<AmmoProperty, int>();
+
+    public Weapon ActiveWeapon => activeWeapon;
+
+    public void ActivateWeapon(int number)
+    {
+        activeWeapon = weaponInventory[number];
+    }
     
     public void AddWeapon(Weapon weapon)
     {
