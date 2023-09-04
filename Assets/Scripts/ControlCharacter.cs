@@ -5,24 +5,20 @@ using Unity.Mathematics;
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
+public class ControlCharacter : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float energy;
-    
     private float _deltaMoveSpeed;
-    
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
+    private Vector2 _storeMovement;
     private Animator _animator;
-    
+    private Player _player;
     private void Start()
     {
+        _player = GetComponent<Player>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-
-        energy = 100f;
-        
         _deltaMoveSpeed = 0f;
     }
     
@@ -39,10 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Run()
     {
-        
         HandleRunAnimation(0.5f, true);
-        DecreaseEnergy();
-
+        _player.DecreaseEnergy();
     }
 
     private void StopRunning()
@@ -50,25 +44,32 @@ public class PlayerMovement : MonoBehaviour
         HandleRunAnimation(0f, false);
         if (IsReadyToGainEnergy())
         {
-            IncreaseEnergy();
+            _player.IncreaseEnergy();
         }
         else
         {
             HandleRunAnimation(0f, false);
         }
-
     }
 
     private void Roll()
     {
         _animator.SetTrigger("Roll");
     }
-    
+
+    public Vector2 GetMovement()
+    {
+        return _storeMovement;
+    }
     private void HandleInput()
     {
         _movement.x = Input.GetAxisRaw("Horizontal");
         _movement.y = Input.GetAxisRaw("Vertical");
-        
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            _storeMovement = _movement;
+            Debug.Log(_storeMovement);
+        }
         //Roll
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -78,14 +79,14 @@ public class PlayerMovement : MonoBehaviour
         //Run
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            if (energy >= 0.5f)
+            if (_player.Energy >= 0.5f)
             {
                 Run();
             }
-            else
-            { 
-                StopRunning();
-            }
+        }
+        else
+        {
+            StopRunning();
         }
     }
 
@@ -102,17 +103,20 @@ public class PlayerMovement : MonoBehaviour
         _deltaMoveSpeed = runSpeed;
     }
 
+    public Vector2 GetDirection()
+    {
+        return _movement;
+    }
     private Vector2 GetMovingFormula()
     {
         var direction = _rigidbody2D.position +
                             _movement.normalized * ((moveSpeed + _deltaMoveSpeed) * Time.fixedDeltaTime);
         return direction;
-
     }
     
     private bool IsReadyToGainEnergy()
     {
-        if (energy <= 100f && _movement.sqrMagnitude == 0)
+        if (_player.Energy <= 100f && _movement.sqrMagnitude == 0)
         {
             return true;
         }
@@ -120,15 +124,5 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
-    }
-
-    private void DecreaseEnergy()
-    {
-        energy -= 6f*Time.deltaTime;
-    }
-
-    private void IncreaseEnergy()
-    {
-        energy += 1f * Time.deltaTime;
     }
 }
