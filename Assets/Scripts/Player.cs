@@ -41,10 +41,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J) && _inventory.ActiveWeapon != null)
         {
-            if (_inventory.AmmoInventory.ContainsKey(_inventory.ActiveWeapon.WeaponProperty.Bullet))
+            if (BulletAmountCheck())
             {
-                if(_inventory.AmmoInventory[_inventory.ActiveWeapon.WeaponProperty.Bullet]>0)
-                    Shoot();    
+                Shoot();
             }
         }
     }
@@ -59,6 +58,7 @@ public class Player : MonoBehaviour
         newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
         _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
     }
+    
     public void DecreaseEnergy()
     {
         energy -= 6f*Time.deltaTime;
@@ -82,6 +82,18 @@ public class Player : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private bool BulletAmountCheck()
+    {
+        if (_inventory.AmmoInventory.TryGetValue(_inventory.ActiveWeapon.WeaponProperty.Bullet, out int value))
+        {
+            if (value > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
