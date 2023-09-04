@@ -15,7 +15,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Dictionary<AmmoProperty, int> ammoInventory = new Dictionary<AmmoProperty, int>();
 
     public Weapon ActiveWeapon => activeWeapon;
-
+    public Dictionary<AmmoProperty, int> AmmoInventory => ammoInventory;
+    
     public void ActivateWeapon(int number)
     {
         activeWeapon = weaponInventory[number];
@@ -37,5 +38,10 @@ public class Inventory : MonoBehaviour
         {
             ammoInventory.Add(ammo.AmmoProperty,ammo.AmmoProperty.AmmoCounts);
         }
+    }
+
+    public void DecreaseAmmo(AmmoProperty ammoProperty)
+    {
+        ammoInventory[ammoProperty]--;
     }
 }

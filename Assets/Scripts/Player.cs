@@ -41,7 +41,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J) && _inventory.ActiveWeapon != null)
         {
-            Shoot();
+            if (_inventory.AmmoInventory.ContainsKey(_inventory.ActiveWeapon.WeaponProperty.Bullet))
+            {
+                if(_inventory.AmmoInventory[_inventory.ActiveWeapon.WeaponProperty.Bullet]>0)
+                    Shoot();    
+            }
         }
     }
     
@@ -53,6 +57,7 @@ public class Player : MonoBehaviour
         Destroy(bulletVFX,1f);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
         newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
+        _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
     }
     public void DecreaseEnergy()
     {
