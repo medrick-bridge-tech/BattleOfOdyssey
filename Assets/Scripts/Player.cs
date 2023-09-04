@@ -57,8 +57,8 @@ public class Player : MonoBehaviour
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
         newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
         _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
+        FindObjectOfType<CinemachineShake>().ShakeCamera(0.5f,0.1f);
     }
-    
     public void DecreaseEnergy()
     {
         energy -= 6f*Time.deltaTime;
