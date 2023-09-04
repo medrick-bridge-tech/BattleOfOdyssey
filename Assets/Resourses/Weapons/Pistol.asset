@@ -16,3 +16,4 @@ MonoBehaviour:
   bullet: {fileID: 11400000, guid: dcbba21ce23c7224e8c1188b21898ead, type: 2}
   magazineCapacity: 0
   fireRate: 0
+  fireRange: 1

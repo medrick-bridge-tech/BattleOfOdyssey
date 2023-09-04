@@ -6,12 +6,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float energy;
+    [SerializeField] private float viewRange;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject shootVFX;
     private Inventory _inventory;
     private ControlCharacter _character;
+    
     public float Energy => energy;
-
+    public float ViewRange => viewRange;
     private void Start()
     {
         _inventory = FindObjectOfType<Inventory>();

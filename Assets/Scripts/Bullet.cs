@@ -11,34 +11,30 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
     private float _speed;
-    
+    private Inventory _inventory;
+    private float _range;
+
     public void SetAmmoProperty(AmmoProperty ammo)
     {
         ammoProperty = ammo;
-    }
-
-    public void SetSpeed(float speed)
-    {
-        _speed = speed;
-    }
-
-    public float GetDamage()
-    {
-        return ammoProperty.Damage;
-    }
-
-    public float GetSpeed()
-    {
-        return ammoProperty.Speed;
     }
     
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _character = FindObjectOfType<ControlCharacter>();
+        _inventory = FindObjectOfType<Inventory>();
         _direction = _character.GetDirection();
+        _range = _inventory.ActiveWeapon.WeaponProperty.FireRange;
         Destroy(gameObject,3f);
-        //Move(_character.GetMovement());
+    }
+
+    private void Update()
+    {
+        if (Vector2.Distance(_character.transform.position, transform.position) >= _range)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Move(Vector2 direction,float speed)
@@ -47,7 +43,7 @@ public class Bullet : MonoBehaviour
         velocity = direction*speed;
         GetComponent<Rigidbody2D>().velocity = velocity;
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
