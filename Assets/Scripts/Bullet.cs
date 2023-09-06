@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     private Inventory _inventory;
     private float _range;
 
+    public AmmoProperty AmmoProperty => ammoProperty;
+
     public void SetAmmoProperty(AmmoProperty ammo)
     {
         ammoProperty = ammo;
@@ -43,7 +45,7 @@ public class Bullet : MonoBehaviour
         velocity = direction*speed;
         GetComponent<Rigidbody2D>().velocity = velocity;
     }
-    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Wall"))
@@ -52,5 +54,8 @@ public class Bullet : MonoBehaviour
             Destroy(destroyVFX, 1f);
             Destroy(gameObject);
         }
+
     }
+
+
 }

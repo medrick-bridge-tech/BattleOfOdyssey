@@ -15,5 +15,5 @@ MonoBehaviour:
   ammoType: 0
   skin: {fileID: -689851738, guid: 6f9cc5191228a024b9fe99b31ef989cf, type: 3}
   ammoCounts: 10
-  bulletDamage: 0
+  bulletDamage: 10
   bulletSpeed: 5
