@@ -1,25 +1,35 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ControlEnemy : MonoBehaviour
 {
     [SerializeField] EnemyPathConfig _pathConfig;
     List<Transform> _pathPoints;
-    private int _pathIndex = 0;
     private Animator _animator;
-    
+    private Enemy _enemy;
+    private int _pathIndex = 0;
+    private bool _move;
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _animator.SetBool("IsAlive",true);
+        _enemy = gameObject.GetComponent<Enemy>();
         _pathPoints = _pathConfig.GetPathPrefab();
+        _move = true;
         StartCoroutine(Moving());
     }
 
     public void SetWaveConfig(EnemyPathConfig pathConfig)
     {
         this._pathConfig = pathConfig;
+    }
+
+    private void FixedUpdate()
+    {
+        HandleDead();
     }
 
     private IEnumerator Moving()
@@ -40,6 +50,10 @@ public class ControlEnemy : MonoBehaviour
                     HandleAnimation(targetPos);
                     while (transform.position != targetPos)
                     {
+                        if (_move == false)
+                        {
+                            yield break;
+                        }
                         transform.position = Vector3.MoveTowards(transform.position, targetPos, movementSpeed * Time.deltaTime);
                         _animator.SetBool("IsWalking",true);
                         yield return null;
@@ -65,5 +79,14 @@ public class ControlEnemy : MonoBehaviour
         }
         _animator.SetFloat("Horizontal",horizontal);
         _animator.SetFloat("Vertical",vertical);
+    }
+
+    private void HandleDead()
+    {
+        if (_enemy.EnemyHealth <= 0f)
+        {
+            _animator.SetBool("IsAlive",false);
+            _move = false;
+        }
     }
 }
