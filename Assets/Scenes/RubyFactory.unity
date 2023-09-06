@@ -183,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104637160}
   - component: {fileID: 104637161}
+  - component: {fileID: 104637162}
   m_Layer: 0
   m_Name: Room3_VC
   m_TagString: Untagged
@@ -244,6 +245,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1396186130}
+--- !u!114 &104637162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104637159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deb74e68c874fb483a46af84474cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &136139240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6488333191688102440, guid: 9a3fe77116ca3d5488ff8886feaef50e, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6488333191688102450, guid: 9a3fe77116ca3d5488ff8886feaef50e, type: 3}
       propertyPath: m_Name
@@ -323,6 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208512711}
   - component: {fileID: 208512710}
+  - component: {fileID: 208512712}
   m_Layer: 0
   m_Name: Room5_VC
   m_TagString: Untagged
@@ -384,6 +398,18 @@ Transform:
   m_Father: {fileID: 1048605943}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208512712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208512708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deb74e68c874fb483a46af84474cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &213117287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5493,6 +5519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081470870}
   - component: {fileID: 1081470869}
+  - component: {fileID: 1081470871}
   m_Layer: 0
   m_Name: Room4_VC
   m_TagString: Untagged
@@ -5554,6 +5581,18 @@ Transform:
   m_Father: {fileID: 1835008888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1081470871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081470867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deb74e68c874fb483a46af84474cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1086878144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7693,6 +7732,7 @@ GameObject:
   - component: {fileID: 1113156153}
   - component: {fileID: 1113156152}
   - component: {fileID: 1113156151}
+  - component: {fileID: 1113156154}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -7776,6 +7816,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1113156154
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113156149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1282777829
 GameObject:
   m_ObjectHideFlags: 0
@@ -7919,6 +7976,7 @@ GameObject:
   - component: {fileID: 1360597503}
   - component: {fileID: 1360597502}
   - component: {fileID: 1360597501}
+  - component: {fileID: 1360597504}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8002,6 +8060,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1360597504
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360597499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1396186129
 GameObject:
   m_ObjectHideFlags: 3
@@ -8014,6 +8089,7 @@ GameObject:
   - component: {fileID: 1396186133}
   - component: {fileID: 1396186132}
   - component: {fileID: 1396186131}
+  - component: {fileID: 1396186134}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8097,6 +8173,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1396186134
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396186129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1435147723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8107,6 +8200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435147726}
   - component: {fileID: 1435147725}
+  - component: {fileID: 1435147727}
   m_Layer: 0
   m_Name: Room2_VC
   m_TagString: Untagged
@@ -8168,6 +8262,18 @@ Transform:
   m_Father: {fileID: 1673081807}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1435147727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435147723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deb74e68c874fb483a46af84474cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1552633229
 GameObject:
   m_ObjectHideFlags: 3
@@ -8180,6 +8286,7 @@ GameObject:
   - component: {fileID: 1552633233}
   - component: {fileID: 1552633232}
   - component: {fileID: 1552633231}
+  - component: {fileID: 1552633234}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -8263,6 +8370,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1552633234
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552633229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &1665794952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2625500163711220628, guid: 5f86782f513c8db43a6bd3faa8f3bb28, type: 3}
