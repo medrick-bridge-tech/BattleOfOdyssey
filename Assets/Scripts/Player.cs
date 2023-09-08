@@ -51,7 +51,8 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         var position = transform.position;
-        var newBullet = Instantiate(bullet,position,Quaternion.identity);
+        var direction = new Vector3(_character.GetMovement().x/10,_character.GetMovement().y/10,0f);
+        var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
         var bulletVFX = Instantiate(shootVFX,position,Quaternion.identity);
         Destroy(bulletVFX,1f);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
