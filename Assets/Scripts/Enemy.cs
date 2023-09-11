@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using RayCastClass;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject bullet;
     private bool _isDetectPlayer;
     private float _delay;
+    private Animator _animator;
+    private MathLogics _mathLogics;
+    private Player _player;
+    
     public float EnemyDelay => enemyDelay;
     public float EnemyHealth => enemyHealth;
     public float EnemyViewRange => enemyViewRange;
@@ -20,15 +25,20 @@ public class Enemy : MonoBehaviour
     
     private void Start()
     {
+        _animator = GetComponent<Animator>();
+        _mathLogics = FindObjectOfType<MathLogics>();
+        _player = FindObjectOfType<Player>();
         _isDetectPlayer = false;
         _delay = 0;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (_isDetectPlayer)
+        /*
+        if (RayCast.DetectPlayer(transform,_player.transform,30,10))
         {
-            
+            _animator.SetBool("IsWalking",false);
+            _animator.SetBool("IsShooting",true);
             _delay += Time.deltaTime;
             if (_delay >= enemyDelay)
             {
@@ -36,6 +46,11 @@ public class Enemy : MonoBehaviour
                 _delay = 0;
             }
         }
+        else
+        {
+            _animator.SetBool("IsShooting",false);
+        }
+        */
     }
 
     public void GetDamage(float damage)
@@ -48,7 +63,7 @@ public class Enemy : MonoBehaviour
         var player = FindObjectOfType<Player>().gameObject;
             if (player != null)
             {
-                transform.LookAt(player.transform);
+                HandleShootAnimation(player.transform.position);
                 Shoot(player);
             }
     }
@@ -69,6 +84,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void HandleShootAnimation(Vector3 targetPos)
+    {
+        Vector2 unitDirection = _mathLogics.UnitVectorMaker(targetPos);
+        var horizontal = unitDirection.x;
+        var vertical = unitDirection.y;
+        
+        _animator.SetFloat("Horizontal",horizontal);
+        _animator.SetFloat("Vertical",vertical);
+    }
+    
     public void SetDetection(bool situation)
     {
         _isDetectPlayer = situation;

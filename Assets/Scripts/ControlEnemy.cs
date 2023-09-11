@@ -6,14 +6,16 @@ using UnityEngine;
 
 public class ControlEnemy : MonoBehaviour
 {
-    [SerializeField] EnemyPathConfig _pathConfig;
-    List<Transform> _pathPoints;
+    [SerializeField] private EnemyPathConfig _pathConfig;
+    private List<Transform> _pathPoints;
     private Animator _animator;
     private Enemy _enemy;
+    private EnemyView _enemyView;
     private int _pathIndex = 0;
     private bool _move;
     private void Start()
     {
+        _enemyView = GetComponentInChildren<EnemyView>();
         _animator = GetComponent<Animator>();
         _animator.SetBool("IsAlive",true);
         _enemy = gameObject.GetComponent<Enemy>();
@@ -54,6 +56,7 @@ public class ControlEnemy : MonoBehaviour
                         {
                             yield break;
                         }
+                        _enemyView.Viewing(targetPos);
                         transform.position = Vector3.MoveTowards(transform.position, targetPos, movementSpeed * Time.deltaTime);
                         _animator.SetBool("IsWalking",true);
                         yield return null;
@@ -77,6 +80,7 @@ public class ControlEnemy : MonoBehaviour
         {
             horizontal = deltaVector.x / Math.Abs(deltaVector.x);
         }
+
         _animator.SetFloat("Horizontal",horizontal);
         _animator.SetFloat("Vertical",vertical);
     }
