@@ -23,7 +23,7 @@ namespace RayCastClass
             for (float i = -(numberOfPieces / 2); i <= (numberOfPieces / 2); i += 1)
             {
                 Debug.DrawRay(watcher, Rotate(direction, (i * viewFieldPiece) * Mathf.Deg2Rad));
-                hit = Physics2D.Raycast(watcher, Rotate(direction, (i * viewFieldPiece) * Mathf.Deg2Rad), 5f, LayerMask.GetMask("Player") | LayerMask.GetMask("Ambush"));
+                hit = Physics2D.Raycast(watcher, Rotate(direction, (i * viewFieldPiece) * Mathf.Deg2Rad), 1f, LayerMask.GetMask("Player") | LayerMask.GetMask("Ambush"));
                 
                 if (hit.collider != null)
                 {

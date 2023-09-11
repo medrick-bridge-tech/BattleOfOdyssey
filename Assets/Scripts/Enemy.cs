@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float enemyViewRange;
     [SerializeField] private float enemySpeed;
     [SerializeField] private GameObject bullet;
-    private bool _isDetectPlayer;
+    public bool _isDetectPlayer;
     private float _delay;
     private Animator _animator;
     private MathLogics _mathLogics;
@@ -34,10 +34,9 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        /*
-        if (RayCast.DetectPlayer(transform,_player.transform,30,10))
+        
+        if (_isDetectPlayer)
         {
-            _animator.SetBool("IsWalking",false);
             _animator.SetBool("IsShooting",true);
             _delay += Time.deltaTime;
             if (_delay >= enemyDelay)
@@ -50,7 +49,6 @@ public class Enemy : MonoBehaviour
         {
             _animator.SetBool("IsShooting",false);
         }
-        */
     }
 
     public void GetDamage(float damage)
@@ -59,12 +57,12 @@ public class Enemy : MonoBehaviour
     }
 
     private void RoutineShoot()
-    {
-        var player = FindObjectOfType<Player>().gameObject;
+    { 
+        var player = FindObjectOfType<Player>();
             if (player != null)
             {
                 HandleShootAnimation(player.transform.position);
-                Shoot(player);
+                Shoot(player.gameObject);
             }
     }
 

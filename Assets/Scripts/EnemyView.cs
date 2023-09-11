@@ -13,10 +13,7 @@ public class EnemyView : MonoBehaviour
 
     public void Viewing(Vector2 target)
     {
-        if (RayCast.DetectPlayer(transform.position,target,30,1))
-        {
-            Debug.Log("Player deteced");
-        }
+        
     }
     private void Start()
     {

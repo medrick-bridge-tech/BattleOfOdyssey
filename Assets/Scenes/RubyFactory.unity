@@ -450,7 +450,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173350940}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5596,6 +5596,10 @@ PrefabInstance:
       value: BlackEnemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}
+    - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
       propertyPath: enemySpeed
       value: 0.1
       objectReference: {fileID: 0}
@@ -5664,6 +5668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}
     - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
       propertyPath: bulletPrefab
       value: 
@@ -5962,6 +5970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}
     - target: {fileID: 8074087734385469240, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
       propertyPath: bulletPrefab
       value: 

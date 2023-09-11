@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RayCastClass;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class ControlEnemy : MonoBehaviour
     private EnemyView _enemyView;
     private int _pathIndex = 0;
     private bool _move;
+
     private void Start()
     {
         _enemyView = GetComponentInChildren<EnemyView>();
@@ -22,6 +24,7 @@ public class ControlEnemy : MonoBehaviour
         _pathPoints = _pathConfig.GetPathPrefab();
         _move = true;
         StartCoroutine(Moving());
+        StartCoroutine(Detecting());
     }
 
     public void SetWaveConfig(EnemyPathConfig pathConfig)
@@ -36,7 +39,7 @@ public class ControlEnemy : MonoBehaviour
 
     private IEnumerator Moving()
     {
-        while (true) // Continuously loop the movement
+        while (_move) // Continuously loop the movement
         {
             _pathIndex = 0;
             for (_pathIndex = 0; _pathIndex < _pathPoints.Count; _pathIndex++)
@@ -44,7 +47,6 @@ public class ControlEnemy : MonoBehaviour
                 Debug.Log("Waiting for 2 seconds...");
                 _animator.SetBool("IsWalking",false);
                 yield return new WaitForSeconds(2f);
-                
                 if (_pathIndex < _pathPoints.Count)
                 {
                     var targetPos = _pathPoints[_pathIndex].position;
@@ -56,7 +58,6 @@ public class ControlEnemy : MonoBehaviour
                         {
                             yield break;
                         }
-                        _enemyView.Viewing(targetPos);
                         transform.position = Vector3.MoveTowards(transform.position, targetPos, movementSpeed * Time.deltaTime);
                         _animator.SetBool("IsWalking",true);
                         yield return null;
@@ -92,5 +93,29 @@ public class ControlEnemy : MonoBehaviour
             _animator.SetBool("IsAlive",false);
             _move = false;
         }
+    }
+
+    private IEnumerator Detecting()
+    {
+        while (true)
+        {
+            var targetPos = _pathPoints[_pathIndex].position;
+            _enemyView.Viewing(targetPos);
+        
+            bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 180, 1);
+            _enemy.SetDetection(playerDetected);
+            if (playerDetected)
+            {
+                // Stop moving if the player is detected
+                _animator.SetBool("IsWalking", false);
+            }
+
+            yield return null;
+        }
+    }
+
+    public void SetMove(bool situation)
+    {
+        _move = situation;
     }
 }
