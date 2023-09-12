@@ -70,11 +70,14 @@ public class Enemy : MonoBehaviour
     {
         Vector2 shootDirection = (target.transform.position - transform.position).normalized;
 
+        var movingDirection = new Vector2(transform.position.x + (_animator.GetFloat("Horizontal")/100),
+            transform.position.y + (_animator.GetFloat("Vertical")/100));
         // Instantiate the bullet
-        GameObject newBullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(this.bullet, movingDirection, Quaternion.identity);
 
         // Access the Bullet component and set its direction
         Bullet bullet = newBullet.GetComponent<Bullet>();
+        bullet.tag = "EnemyBullet";
         if (bullet != null)
         {
             bullet.SetRange(enemyViewRange);

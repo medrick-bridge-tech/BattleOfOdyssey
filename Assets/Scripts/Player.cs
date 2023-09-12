@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float energy;
+    [SerializeField] private float health;
     [SerializeField] private float viewRange;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject shootVFX;
@@ -110,6 +111,11 @@ public class Player : MonoBehaviour
             Ammo ammo = other.GetComponent<Ammo>();
             _inventory.AddAmmo(ammo);
             other.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("EnemyBullet"))
+        {
+            health -= other.GetComponent<Bullet>().AmmoProperty.Damage;
         }
     }
 }
