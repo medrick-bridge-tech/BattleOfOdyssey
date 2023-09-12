@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (_isDetectPlayer)
+        if (_isDetectPlayer && _animator.GetBool("IsAlive"))
         {
             _animator.SetBool("IsShooting",true);
             _delay += Time.deltaTime;

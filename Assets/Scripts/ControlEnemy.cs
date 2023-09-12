@@ -39,7 +39,8 @@ public class ControlEnemy : MonoBehaviour
 
     private IEnumerator Moving()
     {
-        while (_move) // Continuously loop the movement
+        
+        while (true) // Continuously loop the movement
         {
             _pathIndex = 0;
             for (_pathIndex = 0; _pathIndex < _pathPoints.Count; _pathIndex++)
@@ -50,16 +51,17 @@ public class ControlEnemy : MonoBehaviour
                 if (_pathIndex < _pathPoints.Count)
                 {
                     var targetPos = _pathPoints[_pathIndex].position;
-                    var movementSpeed = 0.1f;
                     HandleAnimation(targetPos);
-                    while (transform.position != targetPos)
+                    var movementSpeed = 0.1f;
+                    while (transform.position != targetPos && !_animator.GetBool("IsShooting"))
                     {
                         if (_move == false)
                         {
                             yield break;
                         }
-                        transform.position = Vector3.MoveTowards(transform.position, targetPos, movementSpeed * Time.deltaTime);
                         _animator.SetBool("IsWalking",true);
+                        transform.position = Vector3.MoveTowards(transform.position, targetPos, movementSpeed * Time.deltaTime);
+                        
                         yield return null;
                     }
                 }
@@ -102,13 +104,8 @@ public class ControlEnemy : MonoBehaviour
             var targetPos = _pathPoints[_pathIndex].position;
             _enemyView.Viewing(targetPos);
         
-            bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 180, 1);
+            bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 2f,180, 1);
             _enemy.SetDetection(playerDetected);
-            if (playerDetected)
-            {
-                // Stop moving if the player is detected
-                _animator.SetBool("IsWalking", false);
-            }
 
             yield return null;
         }
