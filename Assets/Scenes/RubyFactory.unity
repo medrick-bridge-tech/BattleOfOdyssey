@@ -294,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6488333191688102452, guid: 9a3fe77116ca3d5488ff8886feaef50e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.518
+      value: 1.578
       objectReference: {fileID: 0}
     - target: {fileID: 6488333191688102452, guid: 9a3fe77116ca3d5488ff8886feaef50e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 173350944}
   m_Layer: 10
   m_Name: Ambush
-  m_TagString: Untagged
+  m_TagString: Ambush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173350940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.317, y: 0.23, z: 0}
+  m_LocalPosition: {x: 1.377, y: 0.23, z: 0}
   m_LocalScale: {x: 0.1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1013,7 +1013,7 @@ GameObject:
   - component: {fileID: 493204155}
   - component: {fileID: 493204154}
   - component: {fileID: 493204153}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall3
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3269,7 +3269,7 @@ GameObject:
   - component: {fileID: 585999949}
   - component: {fileID: 585999948}
   - component: {fileID: 585999947}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall5
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6002,7 +6002,7 @@ GameObject:
   - component: {fileID: 1097832943}
   - component: {fileID: 1097832942}
   - component: {fileID: 1097832941}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall2
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18281,7 +18281,7 @@ GameObject:
   - component: {fileID: 1940638068}
   - component: {fileID: 1940638067}
   - component: {fileID: 1940638066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall4
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -20502,7 +20502,7 @@ GameObject:
   - component: {fileID: 1967870137}
   - component: {fileID: 1967870136}
   - component: {fileID: 1967870135}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall1
   m_TagString: Wall
   m_Icon: {fileID: 0}

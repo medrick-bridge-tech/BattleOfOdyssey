@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Weapon activeWeapon;
     [SerializeField] private Dictionary<AmmoProperty, int> ammoInventory = new Dictionary<AmmoProperty, int>();
 
+    public List<Weapon> WeaponInventory => weaponInventory;
     public Weapon ActiveWeapon => activeWeapon;
     public Dictionary<AmmoProperty, int> AmmoInventory => ammoInventory;
     

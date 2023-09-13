@@ -50,9 +50,9 @@ public class Bullet : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = velocity;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Ambush"))
         {
             var destroyVFX = Instantiate(bulletVFX, transform.position, Quaternion.identity);
             Destroy(destroyVFX, 1f);

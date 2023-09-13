@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
         {
             if (CheckNumpadEnter())
             {
-                int keyNumber = Convert.ToInt32(Event.current.keyCode);
-                if (keyNumber > 0)
+                int keyNumber = Convert.ToInt32(Event.current.keyCode)-49;
+                if (keyNumber >= 0 && keyNumber < _inventory.WeaponInventory.Count)
                 {
-                    _inventory.ActivateWeapon(keyNumber-48);
-                    Debug.Log($"{keyNumber-48} : {_inventory.ActiveWeapon}");
+                    _inventory.ActivateWeapon(keyNumber);
+                    Debug.Log($"{keyNumber} : {_inventory.ActiveWeapon}");
                 }
             }
         }    
@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("EnemyBullet"))
         {
             health -= other.GetComponent<Bullet>().AmmoProperty.Damage;
+            Destroy(other.gameObject);
         }
     }
 }
