@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float energy;
+    [SerializeField] private float health;
     [SerializeField] private float viewRange;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject shootVFX;
@@ -51,7 +52,8 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         var position = transform.position;
-        var newBullet = Instantiate(bullet,position,Quaternion.identity);
+        var direction = new Vector3(_character.GetMovement().x/10,_character.GetMovement().y/10,0f);
+        var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
         var bulletVFX = Instantiate(shootVFX,position,Quaternion.identity);
         Destroy(bulletVFX,1f);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
@@ -109,6 +111,11 @@ public class Player : MonoBehaviour
             Ammo ammo = other.GetComponent<Ammo>();
             _inventory.AddAmmo(ammo);
             other.gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("EnemyBullet"))
+        {
+            health -= other.GetComponent<Bullet>().AmmoProperty.Damage;
         }
     }
 }

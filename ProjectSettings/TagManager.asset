@@ -8,6 +8,9 @@ TagManager:
   - Ammo
   - Gun
   - Wall
+  - Enemy
+  - Bullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Player
+  - Ambush
   - 
   - 
   - 

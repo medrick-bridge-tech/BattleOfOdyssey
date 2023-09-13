@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d6f200199a4dd18b9bc44086a41129, type: 3}
+  m_Name: EnemyPath
+  m_EditorClassIdentifier: 
+  pathPrefab: {fileID: 7077997087407654925, guid: ed08ad7fede3ea84f947e6d227c78fb5, type: 3}
+  enemyPrefab: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}

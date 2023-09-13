@@ -68,7 +68,6 @@ public class ControlCharacter : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             _storeMovement = _movement;
-            Debug.Log(_storeMovement);
         }
         //Roll
         if (Input.GetKeyDown(KeyCode.RightShift))
