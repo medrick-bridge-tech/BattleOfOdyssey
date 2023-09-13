@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8548376023840254033}
   - component: {fileID: 80635551}
   - component: {fileID: -5725426154177210902}
-  - component: {fileID: 5371823330045793518}
+  - component: {fileID: -3766872429028046441}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -122,7 +122,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5371823330045793518
+--- !u!58 &-3766872429028046441
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
