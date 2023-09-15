@@ -906,7 +906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &104637160
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,7 +1067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &208512710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7521,7 +7521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489430, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489431, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7634,7 +7634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1936407136}
 --- !u!1 &515057068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7758,7 +7757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7275167, y: -0.105309844, z: -10.682557}
+  m_LocalPosition: {x: -3.8544831, y: 2.00869, z: -24.768044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15036,7 +15035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489430, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489431, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15161,7 +15160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1655107934}
 --- !u!1001 &974320499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15407,7 +15405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 208512708}
 --- !u!4 &1069189753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8074087734385469236, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
@@ -15487,7 +15484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1081470869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18022,7 +18019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1693310390}
 --- !u!50 &1320086005
 Rigidbody2D:
   serializedVersion: 4
@@ -18292,7 +18288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1435147725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20093,7 +20089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1435147723}
 --- !u!1 &1693310390
 GameObject:
   m_ObjectHideFlags: 0
@@ -20111,7 +20106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1693310392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23212,7 +23207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489430, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489431, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23325,7 +23320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 735531408}
 --- !u!19719996 &1812111606 stripped
 TilemapCollider2D:
   m_CorrespondingSourceObject: {fileID: 444380014, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
@@ -23408,7 +23402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1081470867}
 --- !u!1 &1847605244
 GameObject:
   m_ObjectHideFlags: 0
@@ -42778,7 +42771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 104637159}
 --- !u!60 &1958998705
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -48177,7 +48169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489430, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2286724532493489431, guid: 0f9c0e238b41a4040825e0e93b4ba3c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48294,7 +48286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed09d85e27a400aa42a342359dcb71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virualCam: {fileID: 1792944054}
 --- !u!4 &2058793561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8074087734385469236, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}

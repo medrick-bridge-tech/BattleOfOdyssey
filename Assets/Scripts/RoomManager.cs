@@ -1,22 +1,30 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    [SerializeField] private GameObject virualCam;
+    private GameObject _virtualCamera;
+
+    private void Awake()
+    {
+        _virtualCamera = GetComponentInChildren<CinemachineVirtualCamera>().gameObject;
+        _virtualCamera.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            virualCam.SetActive(true);
+            _virtualCamera.SetActive(true);
         }
     }
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            virualCam.SetActive(false);
+            _virtualCamera.SetActive(false);
         }
     }
     

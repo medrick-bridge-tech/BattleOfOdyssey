@@ -5,25 +5,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float energy;
     [SerializeField] private float health;
-    [SerializeField] private float viewRange;
+    [SerializeField] private float energy;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private GameObject shootVFX;
     private Inventory _inventory;
     private ControlCharacter _character;
     
     public float Energy => energy;
-    public float ViewRange => viewRange;
+    
     private void Start()
     {
-        _inventory = FindObjectOfType<Inventory>();
-        _character = FindObjectOfType<ControlCharacter>();
+        _inventory = GetComponent<Inventory>();
+        _character = GetComponent<ControlCharacter>();
     }
 
     private void OnGUI()
     {
-        //  TODO: How to make this better
         if (Event.current.isKey)
         {
             if (CheckNumpadEnter())
@@ -40,6 +37,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.J) && _inventory.ActiveWeapon != null)
         {
             if (BulletAmountCheck())
@@ -48,29 +50,22 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
     private void Shoot()
+    {
+        CreateBullet();
+        FindObjectOfType<CinemachineShake>().ShakeCamera(0.5f,0.1f);
+    }
+
+    private void CreateBullet()
     {
         var position = transform.position;
         var direction = new Vector3(_character.GetMovement().x/10,_character.GetMovement().y/10,0f);
         var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
-        var bulletVFX = Instantiate(shootVFX,position,Quaternion.identity);
-        Destroy(bulletVFX,1f);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
         newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
         _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
-        FindObjectOfType<CinemachineShake>().ShakeCamera(0.5f,0.1f);
     }
-    public void DecreaseEnergy()
-    {
-        energy -= 6f*Time.deltaTime;
-    }
-
-    public void IncreaseEnergy()
-    {
-        energy += 1f * Time.deltaTime;
-    }
-
+    
     private bool CheckNumpadEnter()
     {
         if (Input.GetKey(KeyCode.Alpha0) || Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) ||
@@ -118,5 +113,15 @@ public class Player : MonoBehaviour
             health -= other.GetComponent<Bullet>().AmmoProperty.Damage;
             Destroy(other.gameObject);
         }
+    }
+    
+    public void DecreaseEnergy()
+    {
+        energy -= 6f*Time.deltaTime;
+    }
+
+    public void IncreaseEnergy()
+    {
+        energy += 1f * Time.deltaTime;
     }
 }
