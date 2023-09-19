@@ -21,19 +21,27 @@ public class InputManager2D : MonoBehaviour
         }
         else
         {
-            Direction = new Vector2(0, 0);
+            Direction = Vector2.zero;
         }
 
         //Roll
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            
+            IsRolling = true;
+        }
+        else
+        {
+            IsRolling = false;
         }
 
         //Run
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            
+            IsRunning = true;
+        }
+        else
+        {
+            IsRunning = false;
         }
     }
 

@@ -31,12 +31,27 @@ public class CharacterController : MonoBehaviour
     {
         if (InputManager2D.Direction.magnitude > .01f)
             forward = InputManager2D.Direction.normalized;
-        HandleMoveAnimation();
+        HandleAnimations();
+        
     }
 
     private void FixedUpdate()
     {
         _rigidbody2D.MovePosition(GetMovingFormula());
+    }
+
+    private void HandleAnimations()
+    {
+        Move();
+        if (InputManager2D.IsRolling)
+        {
+            Roll();
+        }
+        else if (InputManager2D.IsRunning)
+        {
+            Run();
+        }
+        
     }
 
     private void Run()
@@ -63,8 +78,9 @@ public class CharacterController : MonoBehaviour
         _animator.SetTrigger("Roll");
     }
     
-    private void HandleMoveAnimation()
+    private void Move()
     {
+        HandleRunAnimation(0f, false);
         _animator.SetFloat("Horizontal", InputManager2D.Direction.x);
         _animator.SetFloat("Vertical", InputManager2D.Direction.y);
         _animator.SetFloat("Speed",Convert.ToInt32(InputManager2D.Direction.magnitude));
