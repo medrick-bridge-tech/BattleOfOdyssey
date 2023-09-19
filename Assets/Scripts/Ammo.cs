@@ -7,6 +7,9 @@ public class Ammo : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     
     public AmmoProperty AmmoProperty => ammoProperty;
+
+    // TODO: Shortcut for ammo properties
+    public int AmmoCount => ammoProperty.AmmoCounts;
     
     private void Start()
     {

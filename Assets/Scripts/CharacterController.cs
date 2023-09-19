@@ -5,15 +5,20 @@ using Unity.Mathematics;
 using UnityEngine;
 
 
-public class ControlCharacter : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+
     private float _deltaMoveSpeed;
     private Rigidbody2D _rigidbody2D;
-    private Vector2 _movement;
     private Vector2 _storeMovement;
     private Animator _animator;
     private Player _player;
+
+    private Vector2 forward;
+
+    public Vector2 Forward => forward;
+
     private void Start()
     {
         _player = GetComponent<Player>();
@@ -22,9 +27,10 @@ public class ControlCharacter : MonoBehaviour
         _deltaMoveSpeed = 0f;
     }
     
-    private void Update()
+    private void LateUpdate()
     {
-        HandleInput();
+        if (InputManager2D.Direction.magnitude > .01f)
+            forward = InputManager2D.Direction.normalized;
         HandleMoveAnimation();
     }
 
@@ -56,44 +62,12 @@ public class ControlCharacter : MonoBehaviour
     {
         _animator.SetTrigger("Roll");
     }
-
-    public Vector2 GetMovement()
-    {
-        return _storeMovement;
-    }
-    private void HandleInput()
-    {
-        _movement.x = Input.GetAxisRaw("Horizontal");
-        _movement.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            _storeMovement = _movement;
-        }
-        //Roll
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-            Roll();
-        }
-
-        //Run
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if (_player.Energy >= 0.5f)
-            {
-                Run();
-            }
-        }
-        else
-        {
-            StopRunning();
-        }
-    }
-
+    
     private void HandleMoveAnimation()
     {
-        _animator.SetFloat("Horizontal", _movement.x);
-        _animator.SetFloat("Vertical", _movement.y);
-        _animator.SetFloat("Speed",Convert.ToInt32(_movement.magnitude));
+        _animator.SetFloat("Horizontal", InputManager2D.Direction.x);
+        _animator.SetFloat("Vertical", InputManager2D.Direction.y);
+        _animator.SetFloat("Speed",Convert.ToInt32(InputManager2D.Direction.magnitude));
     }
 
     private void HandleRunAnimation(float runSpeed,bool isRun)
@@ -101,21 +75,17 @@ public class ControlCharacter : MonoBehaviour
         _animator.SetBool("IsRunning", isRun);
         _deltaMoveSpeed = runSpeed;
     }
-
-    public Vector2 GetDirection()
-    {
-        return _movement;
-    }
+    
     private Vector2 GetMovingFormula()
     {
         var direction = _rigidbody2D.position +
-                            _movement.normalized * ((moveSpeed + _deltaMoveSpeed) * Time.fixedDeltaTime);
+                            InputManager2D.Direction.normalized * ((moveSpeed + _deltaMoveSpeed) * Time.fixedDeltaTime);
         return direction;
     }
     
     private bool IsReadyToGainEnergy()
     {
-        if (_player.Energy <= 100f && _movement.sqrMagnitude == 0)
+        if (_player.Energy <= 100f && InputManager2D.Direction.sqrMagnitude == 0)
         {
             return true;
         }

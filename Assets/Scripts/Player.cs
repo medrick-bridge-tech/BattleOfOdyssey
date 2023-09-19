@@ -9,14 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float energy;
     [SerializeField] private GameObject bullet;
     private Inventory _inventory;
-    private ControlCharacter _character;
+    private CharacterController _characterController;
     
     public float Energy => energy;
     
     private void Start()
     {
         _inventory = GetComponent<Inventory>();
-        _character = GetComponent<ControlCharacter>();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void OnGUI()
@@ -59,10 +59,10 @@ public class Player : MonoBehaviour
     private void CreateBullet()
     {
         var position = transform.position;
-        var direction = new Vector3(_character.GetMovement().x/10,_character.GetMovement().y/10,0f);
+        var direction = new Vector3(_characterController.Forward.x/10,_characterController.Forward.y/10,0f);
         var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
-        newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
+        newBullet.GetComponent<Bullet>().Move(_characterController.Forward,_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
         _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
     }
     

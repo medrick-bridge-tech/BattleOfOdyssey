@@ -3,7 +3,6 @@ using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
-using RayCastClass;
 
 public class Enemy : MonoBehaviour
 {
