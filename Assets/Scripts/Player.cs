@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         var direction = new Vector3(_characterController.Forward.x/10,_characterController.Forward.y/10,0f);
         var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
         newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
+        newBullet.GetComponent<Bullet>().SetRange(_inventory.ActiveWeapon.WeaponProperty.FireRange);
         newBullet.GetComponent<Bullet>().Move(_characterController.Forward,_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
         _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
     }

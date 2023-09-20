@@ -7,11 +7,9 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private AmmoProperty ammoProperty;
     [SerializeField] private GameObject bulletVFX;
-    private CharacterController _characterController;
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
     private float _speed;
-    private Inventory _inventory;
     private float _range;
     private Vector2 _startPosition;
     public AmmoProperty AmmoProperty => ammoProperty;
@@ -25,13 +23,6 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _startPosition = transform.position;
-        if (gameObject.CompareTag("Bullet"))
-        {
-            _characterController = FindObjectOfType<CharacterController>();
-            _inventory = FindObjectOfType<Inventory>();
-            _direction = InputManager2D.Direction;
-            _range = _inventory.ActiveWeapon.WeaponProperty.FireRange;    
-        }
         Destroy(gameObject,3f);
     }
 
