@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         {
             _characterController = FindObjectOfType<CharacterController>();
             _inventory = FindObjectOfType<Inventory>();
-            //_direction = _characterController.GetDirection();
+            _direction = InputManager2D.Direction;
             _range = _inventory.ActiveWeapon.WeaponProperty.FireRange;    
         }
         Destroy(gameObject,3f);
