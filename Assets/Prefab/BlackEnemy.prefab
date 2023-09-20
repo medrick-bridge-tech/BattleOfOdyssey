@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDelay: 1
   enemyHealth: 10
-  enemyViewRange: 10
+  enemyViewRange: 2
   enemySpeed: 0.5
   bullet: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}
   _isDetectPlayer: 0
@@ -215,4 +215,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf837654c9514e92b7c1cb1f1df73cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {x: 0, y: 0}

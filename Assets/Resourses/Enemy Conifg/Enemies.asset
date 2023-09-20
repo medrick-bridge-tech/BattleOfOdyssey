@@ -46,3 +46,18 @@ MonoBehaviour:
   - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
     path: {fileID: 11400000, guid: 1221d3e378580bc49868167c937a93d9, type: 2}
     defaultDirection: {x: 90, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 82654c14e06ecd24eb460eb4a8c011f3, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1d6646daba8d375488a8069009e76a49, type: 2}
+    defaultDirection: {x: -90, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: b33d0707bd7b49a4f8b08a27619171f9, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1863ae8f70b1d544386061301373acc0, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 723f99dd9a14e664da0b37873253f24b, type: 2}
+    defaultDirection: {x: 0, y: 0}

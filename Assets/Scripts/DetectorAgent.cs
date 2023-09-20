@@ -27,7 +27,7 @@ public class DetectorAgent : MonoBehaviour
         while (true)
         {
             var targetPos = target;
-            bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 2f,180, 1);
+            bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 2f,75, 1);
             _enemy.SetDetection(playerDetected);
             yield return null;
         }
