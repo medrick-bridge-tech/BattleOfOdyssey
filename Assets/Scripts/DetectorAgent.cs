@@ -5,22 +5,28 @@ using UnityEngine;
 
 public class DetectorAgent : MonoBehaviour
 {
-    public Transform target;
-    
+    public Vector2 target;
+
     private Enemy _enemy;
     private PatrolAgent _patrolAgent;
-    
+
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
-        target = transform;
     }
+
+    
+    // public void SetTarget(Vector2 targetDirection)
+    // {
+    //     target = targetDirection;
+    // }
+    
 
     public IEnumerator Detect()
     {
         while (true)
         {
-            var targetPos = target.position;
+            var targetPos = target;
             bool playerDetected = RayCast.DetectPlayer(transform.position, targetPos, 2f,180, 1);
             _enemy.SetDetection(playerDetected);
             yield return null;

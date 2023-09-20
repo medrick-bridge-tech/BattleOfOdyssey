@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyPathConfig : ScriptableObject
 {
     [SerializeField] private GameObject pathPrefab;
+    public bool isStatic;
 
     public List<Transform> GetPathPrefab() {
         var path = new List<Transform>();

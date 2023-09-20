@@ -4,8 +4,9 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyPath
 {
-    public GameObject Enemy;
-    public EnemyPathConfig Path;
+    public GameObject enemy;
+    public EnemyPathConfig path;
+    public Vector2 defaultDirection;
 }
 
 [CreateAssetMenu(fileName = "Enemies", menuName = "Enemy Config")]

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyPath 11
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 4777229946952437787, guid: 9b2f6b876d5d7b6479c67a20a6f0668d, type: 3}
-  enemyPrefab: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+  isStatic: 1

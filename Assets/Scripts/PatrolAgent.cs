@@ -38,7 +38,7 @@ public class PatrolAgent : MonoBehaviour
                 {
 
                     var targetPos = _pathPoints[_pathIndex];
-                    _detectorAgent.target = targetPos;
+                    _detectorAgent.target = targetPos.position;
                     HandleAnimation(targetPos.position);
                     var movementSpeed = 0.1f;
                     while (transform.position != targetPos.position && !_animator.GetBool("IsShooting"))

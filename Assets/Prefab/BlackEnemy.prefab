@@ -188,7 +188,7 @@ MonoBehaviour:
   enemyHealth: 10
   enemyViewRange: 10
   enemySpeed: 0.5
-  bullet: {fileID: 0}
+  bullet: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}
   _isDetectPlayer: 0
 --- !u!114 &-8334741585087223400
 MonoBehaviour:

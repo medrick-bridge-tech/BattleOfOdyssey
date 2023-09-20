@@ -13,17 +13,36 @@ MonoBehaviour:
   m_Name: Enemies
   m_EditorClassIdentifier: 
   _enemyPaths:
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: 7d47d66ffe2dfd34697c0f96c02d37cd, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: 23611ca382712cb479b6d6e2c36ce189, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: bd4bb45e0bede364196b2a02cc104524, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: 8e019abe3c3fb9544ab00b85824b3ff0, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: ef6fd88550a70624e819aa93b1b26edd, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: e706f7989b465a043b600f37b0f3477f, type: 2}
-  - Enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
-    Path: {fileID: 11400000, guid: 1221d3e378580bc49868167c937a93d9, type: 2}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 3eaa8e6928edb54479838aa2859f0f56, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: d01068714fb57e6468251d64fe0f9117, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: da630c187ccc2604e890d0966032a010, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 8fc951159cf6070449ab47ba12df44da, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 7d47d66ffe2dfd34697c0f96c02d37cd, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 23611ca382712cb479b6d6e2c36ce189, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: bd4bb45e0bede364196b2a02cc104524, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 8e019abe3c3fb9544ab00b85824b3ff0, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: ef6fd88550a70624e819aa93b1b26edd, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: e706f7989b465a043b600f37b0f3477f, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1221d3e378580bc49868167c937a93d9, type: 2}
+    defaultDirection: {x: 90, y: 0}
