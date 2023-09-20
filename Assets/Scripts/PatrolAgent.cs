@@ -12,7 +12,7 @@ public class PatrolAgent : MonoBehaviour
     private int _pathIndex;
     private Animator _animator;
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _detectorAgent = GetComponent<DetectorAgent>();

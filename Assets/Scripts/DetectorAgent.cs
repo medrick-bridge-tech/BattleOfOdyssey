@@ -10,7 +10,7 @@ public class DetectorAgent : MonoBehaviour
     private Enemy _enemy;
     private PatrolAgent _patrolAgent;
     
-    private void Start()
+    private void Awake()
     {
         _enemy = GetComponent<Enemy>();
         target = transform;

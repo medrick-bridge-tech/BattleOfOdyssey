@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         if (ammoInventory.ContainsKey(ammo.AmmoProperty))
         {
             ammoInventory[ammo.AmmoProperty] += ammo.AmmoCount;
-            Debug.Log($"{ammo.AmmoProperty.AmmoType} : {ammoInventory[ammo.AmmoProperty]}");    
+            Debug.Log($"{ammo.AmmoType} : {ammoInventory[ammo.AmmoProperty]}");    
         }
         else
         {

@@ -61,10 +61,10 @@ public class Player : MonoBehaviour
         var position = transform.position;
         var direction = new Vector3(_characterController.Forward.x/10,_characterController.Forward.y/10,0f);
         var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
-        newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
-        newBullet.GetComponent<Bullet>().SetRange(_inventory.ActiveWeapon.WeaponProperty.FireRange);
-        newBullet.GetComponent<Bullet>().Move(_characterController.Forward,_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
-        _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
+        newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponBullet);
+        newBullet.GetComponent<Bullet>().SetRange(_inventory.ActiveWeapon.FireRange);
+        newBullet.GetComponent<Bullet>().Move(_characterController.Forward,_inventory.ActiveWeapon.WeaponBullet.Speed);
+        _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponBullet);
     }
     
     private bool CheckNumpadEnter()
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
     private bool BulletAmountCheck()
     {
-        if (_inventory.AmmoInventory.TryGetValue(_inventory.ActiveWeapon.WeaponProperty.Bullet, out int value))
+        if (_inventory.AmmoInventory.TryGetValue(_inventory.ActiveWeapon.WeaponBullet, out int value))
         {
             if (value > 0)
             {
