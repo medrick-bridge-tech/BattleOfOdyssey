@@ -15,8 +15,7 @@ public class Enemy : MonoBehaviour
     private float _delay;
     private Animator _animator;
     private MathLogics _mathLogics;
-    private Player _player;
-    
+
     public float EnemyDelay => enemyDelay;
     public float EnemyHealth => enemyHealth;
     public float EnemyViewRange => enemyViewRange;
@@ -26,7 +25,6 @@ public class Enemy : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _mathLogics = FindObjectOfType<MathLogics>();
-        _player = FindObjectOfType<Player>();
         _isDetectPlayer = false;
         _delay = 0;
     }

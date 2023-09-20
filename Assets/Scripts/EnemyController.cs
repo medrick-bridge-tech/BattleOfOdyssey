@@ -13,14 +13,12 @@ public class EnemyController : MonoBehaviour
     private DetectorAgent _detectorAgent;
     private Animator _animator;
     private Enemy _enemy;
-    private bool _move;
-    
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool("IsAlive",true);
         _enemy = gameObject.GetComponent<Enemy>();
-        _move = true;
         _patrolAgent = GetComponent<PatrolAgent>();
         _detectorAgent = GetComponent<DetectorAgent>();
         _patrolAgent.Setup(pathConfig);
