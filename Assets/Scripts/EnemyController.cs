@@ -21,9 +21,6 @@ public class EnemyController : MonoBehaviour
         _enemy = gameObject.GetComponent<Enemy>();
         _patrolAgent = GetComponent<PatrolAgent>();
         _detectorAgent = GetComponent<DetectorAgent>();
-        _patrolAgent.Setup(pathConfig);
-        StartCoroutine(_patrolAgent.StartMoving());
-        StartCoroutine(_detectorAgent.Detect());
     }
 
     public void SetWaveConfig(EnemyPathConfig pathConfig)

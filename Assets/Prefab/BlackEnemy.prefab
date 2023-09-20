@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8074087734385469242}
   - component: {fileID: 8074087734385469241}
   - component: {fileID: 8074087734385469240}
+  - component: {fileID: -8334741585087223400}
+  - component: {fileID: 7756757529451367122}
   m_Layer: 0
   m_Name: BlackEnemy
   m_TagString: Enemy
@@ -169,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84ce8ec2a24b5e48bb64e7b1ca36104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pathConfig: {fileID: 0}
+  pathConfig: {fileID: 0}
 --- !u!114 &8074087734385469240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +188,31 @@ MonoBehaviour:
   enemyHealth: 10
   enemyViewRange: 10
   enemySpeed: 0.5
+  bullet: {fileID: 0}
+  _isDetectPlayer: 0
+--- !u!114 &-8334741585087223400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074087734385469239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778da9ab775b4fb5adf5575b71ee323f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPathConfig: {fileID: 0}
+--- !u!114 &7756757529451367122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074087734385469239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf837654c9514e92b7c1cb1f1df73cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
