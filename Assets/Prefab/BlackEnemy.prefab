@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDelay: 1
-  enemyHealth: 10
+  enemyHealth: 20
   enemyViewRange: 2
   enemySpeed: 0.5
   bullet: {fileID: 8548376023840254032, guid: 6b90dc2347eb3324db0d97c61c0f2308, type: 3}

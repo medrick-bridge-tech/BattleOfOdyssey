@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum AmmoType
 {
-    Cartridge3Mm
+    Cartridge3Mm, Cartridge556Mm, Gauge12
 }
 
 public class Inventory : MonoBehaviour
