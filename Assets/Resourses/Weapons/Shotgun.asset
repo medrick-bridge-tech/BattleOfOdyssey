@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   skin: {fileID: -1022713044, guid: 39079841c0c99f5488f3219a8f3c805b, type: 3}
-  bullet: {fileID: 11400000, guid: 3d105fe3d79103b4ea58a4d3cbfd7220, type: 2}
+  bullet: {fileID: 11400000, guid: b28d216db0711904998b7c0cbf7a1bb6, type: 2}
   magazineCapacity: 5
   fireRate: 2
   fireRange: 0.5

@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     public AmmoProperty WeaponBullet => weaponProperty.Bullet;
+    public Sprite WeaponSkin => weaponProperty.Skin;
     public int MagazineCapacity => weaponProperty.MagazineCapacity;
     public float FireRange => weaponProperty.FireRange;
     public float FireRate => weaponProperty.FireRate;
