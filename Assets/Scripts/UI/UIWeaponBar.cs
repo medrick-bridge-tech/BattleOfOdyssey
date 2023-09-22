@@ -42,7 +42,14 @@ namespace UI
 
         private string GetBulletAmount(Weapon weapon)
         {
-            return inventory.AmmoInventory[weapon.WeaponBullet].ToString();
+            if(inventory.AmmoInventory.TryGetValue(inventory.ActiveWeapon.WeaponBullet, out int value))
+            {
+                return inventory.AmmoInventory[weapon.WeaponBullet].ToString();
+            }
+            else
+            {
+                return "0";
+            }
         }
     }
 }
