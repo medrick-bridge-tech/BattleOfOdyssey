@@ -7,12 +7,12 @@ public class DetectorAgent : MonoBehaviour
 {
     public Vector2 target;
 
-    private Enemy _enemy;
+    private Enemy.Enemy _enemy;
     private PatrolAgent _patrolAgent;
 
     private void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Enemy.Enemy>();
     }
 
     

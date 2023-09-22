@@ -15,4 +15,13 @@ public class GameManager : MonoBehaviour
     {
         uiMessage.UpdateMessage("Kill all the factory guards to open the door.");
     }
+
+    public static void AddCoin(int count)
+    {
+        Coins += count;
+    }
+    public static void AddKill()
+    {
+        Kills++;
+    }
 }
