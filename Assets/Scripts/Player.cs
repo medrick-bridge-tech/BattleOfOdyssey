@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private CharacterController _characterController;
     
     public float Energy => energy;
+    public float Health => health;
     
     private void Start()
     {
