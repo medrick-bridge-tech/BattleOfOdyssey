@@ -17,3 +17,4 @@ MonoBehaviour:
   magazineCapacity: 7
   fireRate: 2
   fireRange: 4
+  fireSound: {fileID: 8300000, guid: 70a65383485b09941a1071625098d0c0, type: 3}

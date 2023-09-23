@@ -8,9 +8,11 @@ public class Weapon : MonoBehaviour
 
     public AmmoProperty WeaponBullet => weaponProperty.Bullet;
     public Sprite WeaponSkin => weaponProperty.Skin;
+    public AudioClip FireSound => weaponProperty.FireSound;
     public int MagazineCapacity => weaponProperty.MagazineCapacity;
     public float FireRange => weaponProperty.FireRange;
     public float FireRate => weaponProperty.FireRate;
+    
 
     private void Start()
     {
