@@ -17,5 +17,15 @@ namespace Manager
         {
             Application.Quit();
         }
+
+        public void LoadMenu()
+        {
+            SceneManager.LoadScene("Menu");
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
