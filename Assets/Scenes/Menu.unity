@@ -931,6 +931,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca3ee7ba7f4fe5478c279a24c3b4686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSounds:
+  - {fileID: 8300000, guid: 7ce75e68b993ad54988d7cb364c4e9f7, type: 3}
+  - {fileID: 8300000, guid: 53b535873ee18cb498f35c69f860ed53, type: 3}
+  - {fileID: 8300000, guid: c3c22a53be2969c41ab55ec5ec2d0f9e, type: 3}
+  - {fileID: 8300000, guid: cfe812b1cf9390e40930feb094004057, type: 3}
+  - {fileID: 8300000, guid: 3635d01498fc03f46ae8119c6abc5afe, type: 3}
+  - {fileID: 8300000, guid: 27c94606f4dc1114b889eb665c8a3b4c, type: 3}
 --- !u!1 &1106246782
 GameObject:
   m_ObjectHideFlags: 0
