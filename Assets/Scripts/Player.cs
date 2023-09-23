@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography;
+using Manager;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleInput();
+        HandlePlayer();
     }
 
     private void HandleInput()
@@ -51,6 +53,15 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void HandlePlayer()
+    {
+        if (health <= 0)
+        {
+            ButtonManger.Instance.RestartGame();
+        }
+    }
+    
     private void Shoot()
     {
         AudioSource.PlayClipAtPoint(_inventory.ActiveWeapon.FireSound,Camera.main.transform.position,0.25f);

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Manager
 {
-    public class ButtonManger : MonoBehaviour
+    public class ButtonManger : MonoBehaviourSingleton<ButtonManger>
     {
         public void NewGame()
         {
