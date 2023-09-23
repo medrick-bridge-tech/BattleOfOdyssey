@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ namespace Enemy
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private EnemyConfig enemyConfig;
+
+        private void Awake()
+        {
+            
+        }
 
         private void Start()
         {

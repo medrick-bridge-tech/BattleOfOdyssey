@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 
 namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
+        public delegate void EnemySpawn();
+        public static event EnemySpawn OnSpawned;
+        
         [SerializeField] private float enemyDelay;
         [SerializeField] private float enemyHealth;
         [SerializeField] private float enemyViewRange;
@@ -18,7 +22,15 @@ namespace Enemy
         public float EnemyHealth => enemyHealth;
         public float EnemyViewRange => enemyViewRange;
         public float EnemySpeed => enemySpeed;
-    
+
+        private void Awake()
+        {
+            if (OnSpawned != null)
+            {
+                OnSpawned();
+            }
+        }
+
         private void Start()
         {
             _animator = GetComponent<Animator>();
