@@ -27,5 +27,15 @@ namespace Manager
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        public void OpenMenu(GameObject menu)
+        {
+            menu.SetActive(true);
+        }
+
+        public void CloseMenu(GameObject menu)
+        {
+            menu.SetActive(false);
+        }
     }
 }
