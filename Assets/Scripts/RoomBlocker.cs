@@ -12,7 +12,7 @@ public class RoomBlocker : MonoBehaviour
     {
         if (!_isActive)
         {
-            if ((GameManager.EnemiesCount / 2) > GameManager.Kills) return;
+            if ((GameManager.Instance.EnemiesCount / 2) > GameManager.Instance.Kills) return;
             uiMessage.UpdateMessage("You have Killed enough guards. Now leave the area.");
             blockWall.SetActive(false);
             _isActive = true;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Music : MonoBehaviour
+public class Music : MonoBehaviourSingleton<Music>
 {
     [SerializeField] private AudioClip[] deathSounds;
     public AudioClip[] DeathSounds => deathSounds;
@@ -18,5 +18,10 @@ public class Music : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);    
         }
+    }
+
+    public void SetVolume(float volume)
+    {
+        GetComponent<AudioSource>().volume = volume;
     }
 }

@@ -38,8 +38,8 @@ namespace Enemy
             if (_enemy.EnemyHealth <= 0f)
             {
                 _animator.SetBool("IsAlive",false);
-                GameManager.AddCoin(1);
-                GameManager.AddKill();
+                GameManager.Instance.AddCoin(1);
+                GameManager.Instance.AddKill();
                 Destroy(GetComponent<EnemyController>());
                 PlayRandomDeathSound();
             }
@@ -48,7 +48,7 @@ namespace Enemy
         private void PlayRandomDeathSound()
         {
             var randomNumber = Random.Range(0, _music.DeathSounds.Length);
-            AudioSource.PlayClipAtPoint(_music.DeathSounds[randomNumber],transform.position,10f);
+            AudioSource.PlayClipAtPoint(_music.DeathSounds[randomNumber],Camera.main.transform.position,10f);
             Debug.Log($"I played {_music.DeathSounds[randomNumber].name}");
         }
     }

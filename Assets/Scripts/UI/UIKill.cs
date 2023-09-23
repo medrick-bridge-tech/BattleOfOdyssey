@@ -14,7 +14,7 @@ namespace UI
 
         private void SetKill()
         {
-            killText.text = $": {GameManager.Kills}";
+            killText.text = $": {GameManager.Instance.Kills}";
         }
     }
 }

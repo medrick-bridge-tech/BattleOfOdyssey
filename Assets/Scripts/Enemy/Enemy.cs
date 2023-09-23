@@ -5,9 +5,8 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
-        public delegate void EnemySpawn();
-        public static event EnemySpawn OnSpawned;
-        
+        public Action onSpawned;
+
         [SerializeField] private float enemyDelay;
         [SerializeField] private float enemyHealth;
         [SerializeField] private float enemyViewRange;
@@ -22,13 +21,16 @@ namespace Enemy
         public float EnemyHealth => enemyHealth;
         public float EnemyViewRange => enemyViewRange;
         public float EnemySpeed => enemySpeed;
+        
 
-        private void Awake()
+        private void OnEnable()
         {
-            if (OnSpawned != null)
-            {
-                OnSpawned();
-            }
+            GameManager.Instance.RegisterEnemy(this);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.UnregisterEnemy(this);
         }
 
         private void Start()
@@ -37,6 +39,9 @@ namespace Enemy
             _mathLogics = FindObjectOfType<MathLogics>();
             _isDetectPlayer = false;
             _delay = 0;
+            
+            if (onSpawned != null)
+                onSpawned.Invoke();
         }
 
         private void FixedUpdate()

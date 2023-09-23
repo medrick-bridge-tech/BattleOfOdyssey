@@ -5,7 +5,10 @@ namespace Manager
 {
     public class ButtonManger : MonoBehaviour
     {
-        public void NewGame(){
+        public void NewGame()
+        {
+            Music.Instance.SetVolume(0.05f);
+            GameManager.Instance.ResetFields();
             SceneManager.LoadScene("RubyFactory");
         }
 
@@ -13,6 +16,7 @@ namespace Manager
         {
             SceneManager.LoadScene("Setting");
         }
+        
         public void Quit()
         {
             Application.Quit();
@@ -20,11 +24,13 @@ namespace Manager
 
         public void LoadMenu()
         {
+            Music.Instance.SetVolume(1f);
             SceneManager.LoadScene("Menu");
         }
 
         public void RestartGame()
         {
+            GameManager.Instance.ResetFields();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

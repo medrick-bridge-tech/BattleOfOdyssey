@@ -15,7 +15,7 @@ namespace UI
 
         private void SetCoin()
         {
-            coinText.text = $": {GameManager.Coins}";
+            coinText.text = $": {GameManager.Instance.Coins}";
         }
     }
 }

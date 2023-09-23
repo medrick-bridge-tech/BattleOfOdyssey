@@ -1,38 +1,48 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Enemy;
 using UI;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public static int Coins { get; private set; }
-    public static int Kills { get; private set; }
-    public static int EnemiesCount { get; private set; }
+    public int Coins { get; private set; }
+    public int Kills { get; private set; }
+    public int EnemiesCount { get; private set; }
     
     [SerializeField] private UIMessage uiMessage;
 
-    private void OnEnable()
+    public void RegisterEnemy(Enemy.Enemy enemy)
     {
-        Enemy.Enemy.OnSpawned += AddEnemy;
+        enemy.onSpawned += AddEnemy;
     }
 
-    private void OnDisable()
+    public void UnregisterEnemy(Enemy.Enemy enemy)
     {
-        Enemy.Enemy.OnSpawned -= AddEnemy;
+        enemy.onSpawned -= AddEnemy;
+    }
+
+    private void Awake()
+    {
+        if (FindObjectsOfType<GameManager>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);    
+        }
     }
 
     private void Start()
     {
-        uiMessage.UpdateMessage("Kill all the factory guards to open the door.");
+        if (uiMessage != null)
+            uiMessage.UpdateMessage("Kill all the factory guards to open the door.");
     }
     
-    public static void AddCoin(int count)
+    public void AddCoin(int count)
     {
         Coins += count;
     }
-    public static void AddKill()
+    public void AddKill()
     {
         Kills++;
     }
@@ -41,5 +51,12 @@ public class GameManager : MonoBehaviour
     {
         EnemiesCount++;
         Debug.Log($"enemies: {EnemiesCount}");
+    }
+
+    public void ResetFields()
+    {
+        Coins = 0;
+        Kills = 0;
+        EnemiesCount = 0;
     }
 }

@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     }
     private void Shoot()
     {
-        AudioSource.PlayClipAtPoint(_inventory.ActiveWeapon.FireSound,transform.position,0.25f);
+        AudioSource.PlayClipAtPoint(_inventory.ActiveWeapon.FireSound,Camera.main.transform.position,0.25f);
         CreateBullet();
         FindObjectOfType<CinemachineShake>().ShakeCamera(0.5f,0.1f);
     }
