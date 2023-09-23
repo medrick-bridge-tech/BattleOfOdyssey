@@ -31,10 +31,6 @@ namespace RayCastClass
                     {
                         Debug.Log("Player detected");
                         return true; // Player detected, no need to continue    
-                    }else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Ambush"))
-                    {
-                        Debug.Log("Ambush detected");
-                        return false;
                     }
                 }
             }
