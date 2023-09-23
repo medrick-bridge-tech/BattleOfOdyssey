@@ -7,12 +7,12 @@ namespace Enemy
     public class EnemyController : MonoBehaviour
     {
         [SerializeField] private EnemyPathConfig pathConfig;
-
+        
         private PatrolAgent _patrolAgent;
         private DetectorAgent _detectorAgent;
         private Animator _animator;
-        private global::Enemy.Enemy _enemy;
-
+        private Enemy _enemy;
+        private Music _music;
         private void Start()
         {
             _animator = GetComponent<Animator>();
@@ -20,6 +20,7 @@ namespace Enemy
             _enemy = gameObject.GetComponent<global::Enemy.Enemy>();
             _patrolAgent = GetComponent<PatrolAgent>();
             _detectorAgent = GetComponent<DetectorAgent>();
+            _music = FindObjectOfType<Music>();
         }
 
         public void SetWaveConfig(EnemyPathConfig pathConfig)
@@ -40,7 +41,15 @@ namespace Enemy
                 GameManager.AddCoin(1);
                 GameManager.AddKill();
                 Destroy(GetComponent<EnemyController>());
+                PlayRandomDeathSound();
             }
+        }
+
+        private void PlayRandomDeathSound()
+        {
+            var randomNumber = Random.Range(0, _music.DeathSounds.Length);
+            AudioSource.PlayClipAtPoint(_music.DeathSounds[randomNumber],transform.position,10f);
+            Debug.Log($"I played {_music.DeathSounds[randomNumber].name}");
         }
     }
 }

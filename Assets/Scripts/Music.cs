@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Music : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] deathSounds;
+    public AudioClip[] DeathSounds => deathSounds;
+    
     private void Awake()
     {
         if (FindObjectsOfType<Music>().Length > 1)
