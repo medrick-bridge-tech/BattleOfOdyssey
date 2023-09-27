@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ab9a483705457da9e1656a19574709, type: 3}
+  m_Name: Enemies
+  m_EditorClassIdentifier: 
+  _enemyPaths:
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 3eaa8e6928edb54479838aa2859f0f56, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: d01068714fb57e6468251d64fe0f9117, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: da630c187ccc2604e890d0966032a010, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 8fc951159cf6070449ab47ba12df44da, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 7d47d66ffe2dfd34697c0f96c02d37cd, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 23611ca382712cb479b6d6e2c36ce189, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: bd4bb45e0bede364196b2a02cc104524, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 8e019abe3c3fb9544ab00b85824b3ff0, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: ef6fd88550a70624e819aa93b1b26edd, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: e706f7989b465a043b600f37b0f3477f, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1221d3e378580bc49868167c937a93d9, type: 2}
+    defaultDirection: {x: 90, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 82654c14e06ecd24eb460eb4a8c011f3, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1d6646daba8d375488a8069009e76a49, type: 2}
+    defaultDirection: {x: -90, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: b33d0707bd7b49a4f8b08a27619171f9, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 1863ae8f70b1d544386061301373acc0, type: 2}
+    defaultDirection: {x: 0, y: 0}
+  - enemy: {fileID: 8074087734385469239, guid: 4e9733830bd7f7a45b2c5dec888b644b, type: 3}
+    path: {fileID: 11400000, guid: 723f99dd9a14e664da0b37873253f24b, type: 2}
+    defaultDirection: {x: 0, y: 0}

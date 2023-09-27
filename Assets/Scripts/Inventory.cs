@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum AmmoType
 {
-    Cartridge3Mm
+    Cartridge3Mm, Cartridge556Mm, Gauge12, FMJ
 }
 
 public class Inventory : MonoBehaviour
@@ -32,8 +32,8 @@ public class Inventory : MonoBehaviour
     {
         if (ammoInventory.ContainsKey(ammo.AmmoProperty))
         {
-            ammoInventory[ammo.AmmoProperty] += ammo.AmmoProperty.AmmoCounts;
-            Debug.Log($"{ammo.AmmoProperty.AmmoType} : {ammoInventory[ammo.AmmoProperty]}");    
+            ammoInventory[ammo.AmmoProperty] += ammo.AmmoCount;
+            Debug.Log($"{ammo.AmmoType} : {ammoInventory[ammo.AmmoProperty]}");    
         }
         else
         {

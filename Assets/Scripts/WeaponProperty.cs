@@ -8,9 +8,12 @@ public class WeaponProperty : ScriptableObject
     [SerializeField] private int magazineCapacity;
     [SerializeField] private float fireRate;
     [SerializeField] private float fireRange;
+    [SerializeField] private AudioClip fireSound;
     public Sprite Skin => skin;
     public AmmoProperty Bullet => bullet;
+    public AudioClip FireSound => fireSound;
     public int MagazineCapacity => magazineCapacity;
     public float FireRate => fireRate;
     public float FireRange => fireRange;
+    
 }

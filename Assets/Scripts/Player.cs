@@ -1,29 +1,28 @@
 using System;
 using System.Security.Cryptography;
+using Manager;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float energy;
     [SerializeField] private float health;
-    [SerializeField] private float viewRange;
+    [SerializeField] private float energy;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private GameObject shootVFX;
     private Inventory _inventory;
-    private ControlCharacter _character;
+    private CharacterController _characterController;
     
     public float Energy => energy;
-    public float ViewRange => viewRange;
+    public float Health => health;
+    
     private void Start()
     {
-        _inventory = FindObjectOfType<Inventory>();
-        _character = FindObjectOfType<ControlCharacter>();
+        _inventory = GetComponent<Inventory>();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void OnGUI()
     {
-        //  TODO: How to make this better
         if (Event.current.isKey)
         {
             if (CheckNumpadEnter())
@@ -40,6 +39,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        HandleInput();
+        HandlePlayer();
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.J) && _inventory.ActiveWeapon != null)
         {
             if (BulletAmountCheck())
@@ -48,29 +53,33 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    private void HandlePlayer()
+    {
+        if (health <= 0)
+        {
+            ButtonManger.Instance.RestartGame();
+        }
+    }
     
     private void Shoot()
     {
-        var position = transform.position;
-        var direction = new Vector3(_character.GetMovement().x/10,_character.GetMovement().y/10,0f);
-        var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
-        var bulletVFX = Instantiate(shootVFX,position,Quaternion.identity);
-        Destroy(bulletVFX,1f);
-        newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponProperty.Bullet);
-        newBullet.GetComponent<Bullet>().Move(_character.GetMovement(),_inventory.ActiveWeapon.WeaponProperty.Bullet.Speed);
-        _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponProperty.Bullet);
+        AudioSource.PlayClipAtPoint(_inventory.ActiveWeapon.FireSound,Camera.main.transform.position,0.25f);
+        CreateBullet();
         FindObjectOfType<CinemachineShake>().ShakeCamera(0.5f,0.1f);
     }
-    public void DecreaseEnergy()
-    {
-        energy -= 6f*Time.deltaTime;
-    }
 
-    public void IncreaseEnergy()
+    private void CreateBullet()
     {
-        energy += 1f * Time.deltaTime;
+        var position = transform.position;
+        var direction = new Vector3(_characterController.Forward.x/10,_characterController.Forward.y/10,0f);
+        var newBullet = Instantiate(bullet,position + direction,Quaternion.identity);
+        newBullet.GetComponent<Bullet>().SetAmmoProperty(_inventory.ActiveWeapon.WeaponBullet);
+        newBullet.GetComponent<Bullet>().SetRange(_inventory.ActiveWeapon.FireRange);
+        newBullet.GetComponent<Bullet>().Move(_characterController.Forward,_inventory.ActiveWeapon.WeaponBullet.Speed);
+        _inventory.DecreaseAmmo(_inventory.ActiveWeapon.WeaponBullet);
     }
-
+    
     private bool CheckNumpadEnter()
     {
         if (Input.GetKey(KeyCode.Alpha0) || Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) ||
@@ -88,7 +97,7 @@ public class Player : MonoBehaviour
 
     private bool BulletAmountCheck()
     {
-        if (_inventory.AmmoInventory.TryGetValue(_inventory.ActiveWeapon.WeaponProperty.Bullet, out int value))
+        if (_inventory.AmmoInventory.TryGetValue(_inventory.ActiveWeapon.WeaponBullet, out int value))
         {
             if (value > 0)
             {
@@ -118,5 +127,15 @@ public class Player : MonoBehaviour
             health -= other.GetComponent<Bullet>().AmmoProperty.Damage;
             Destroy(other.gameObject);
         }
+    }
+    
+    public void DecreaseEnergy()
+    {
+        energy -= 6f*Time.deltaTime;
+    }
+
+    public void IncreaseEnergy()
+    {
+        energy += 1f * Time.deltaTime;
     }
 }

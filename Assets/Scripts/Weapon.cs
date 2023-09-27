@@ -5,8 +5,14 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponProperty weaponProperty;
     private SpriteRenderer _spriteRenderer;
+
+    public AmmoProperty WeaponBullet => weaponProperty.Bullet;
+    public Sprite WeaponSkin => weaponProperty.Skin;
+    public AudioClip FireSound => weaponProperty.FireSound;
+    public int MagazineCapacity => weaponProperty.MagazineCapacity;
+    public float FireRange => weaponProperty.FireRange;
+    public float FireRate => weaponProperty.FireRate;
     
-    public WeaponProperty WeaponProperty => weaponProperty;
 
     private void Start()
     {
